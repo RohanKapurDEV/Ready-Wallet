@@ -75,3 +75,79 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+
+/** San-Francisco Display Typeface imports (../assets/fonts/..) **/
+
+@font-face {
+  font-family: 'SF-Pro-Display-Thin';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Thin.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Display-Ultralight';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Ultralight.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Display-Light';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Light.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Display-Regular';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Display-Medium';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Display-Semibold';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Semibold.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Display-Bold';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Display-Black';
+  src: url(../assets/fonts/SF-Pro-Display/SFProDisplay-Black.ttf);
+}
+
+
+/** San-Francisco Text Typeface imports (../assets/fonts/..) **/
+
+@font-face {
+  font-family: 'SF-Pro-Text-Light';
+  src: url(../assets/fonts/SF-Pro-Text/SFProText-Light.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text-Regular';
+  src: url(../assets/fonts/SF-Pro-Text/SFProText-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text-Medium';
+  src: url(../assets/fonts/SF-Pro-Text/SFProText-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text-Semibold';
+  src: url(../assets/fonts/SF-Pro-Text/SFProText-Semibold.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text-Bold';
+  src: url(../assets/fonts/SF-Pro-Text/SFProText-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text-Heavy';
+  src: url(../assets/fonts/SF-Pro-Text/SFProText-Heavy.ttf);
+}
