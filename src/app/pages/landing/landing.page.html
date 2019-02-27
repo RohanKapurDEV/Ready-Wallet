@@ -1,20 +1,52 @@
 <ion-content>
+  <!-- Line breaks for semantic spacing, should probably modify for percentage based div spacing but fuck it -->
+  <br>
+  <br> 
   <div class="sparkline_wrapper"> 
     <!-- Set the sparkline wrapper div to take up about 50-55% of the screen -->
     
     <div class="bitcoin_data_wrapper">
       <!-- Set the bitcoin data wrapper to take up about 50% of the sparkline wrapper -->
       <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
+      <div id="currencyPrice"> {{btcPrice}} </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col class="subtextData" id="currencySubtext">Bitcoin &nbsp; <img src="../../../assets/icon/btc.png" style="height: 20px;"></ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="chart_wrapper">
+
+      </div>
     </div>
 
     <div class="ethereum_data_wrapper">
       <!-- Set the ethereum data wrapper to take up about 50% of the sparkline wrapper -->
       <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
+      <div id="currencyPrice"> {{ethPrice}} </div>
+      <ion-grid>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col class="subtextData" id="currencySubtext">Ethereum &nbsp; <img src="../../../assets/icon/eth.png" style="height: 20px;"></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="chart_wrapper">
 
+        </div>
     </div>
+
   </div>
 
   <div class="wallets_wrapper">
     <!-- Set the wallets wrapper div to take up about 40-45% of the screen -->
+    <ion-grid>
+      <ion-row>
+        <ion-col id="wallets_title" size=10>Wallets</ion-col>
+        <ion-col size=2></ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
+
 </ion-content>

@@ -7,6 +7,48 @@
     height: 50%;
 }
 
-.ethtereum_data_wrapper {
+.ethereum_data_wrapper {
     height: 50%;
+}
+
+#currencyPrice {
+    font-family: SF-Pro-Display-Semibold;
+    font-size: 1.7em;
+    color: #263238;
+    text-align: center;
+}
+
+#currencySubtext {
+    font-family: SF-Pro-Text-Semibold;
+    color: #263238;
+    font-size: 0.9em;
+}
+
+.gridWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.subtextData {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center;
+    padding: 0;
+}
+
+.chart_wrapper {
+    height: 75%;
+}
+
+.wallets_wrapper {
+    height: 35%;
+    margin: 1em;
+}
+
+#wallets_title {
+    font-family: SF-Pro-Display-Bold;
+    font-size: 2em;
+    color: #263238;
+    padding: 0;
 }
