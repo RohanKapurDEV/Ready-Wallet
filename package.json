@@ -28,6 +28,7 @@
     "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
+    "ng2-charts": "^1.6.0",
     "number-flip": "^1.0.28",
     "numeral": "^2.0.6",
     "odometer": "^0.4.8",

@@ -19,4 +19,8 @@ export class NomicsService {
       map(array => array.filter(obj => obj.currency === sym))
     )
   }
+
+  pullChartData() {
+    
+  }
 }

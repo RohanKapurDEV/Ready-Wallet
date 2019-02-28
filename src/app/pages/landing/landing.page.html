@@ -16,28 +16,27 @@
           <ion-col></ion-col>
         </ion-row>
       </ion-grid>
-      <div class="chart_wrapper">
-
-      </div>
+      <div class="chart_wrapper" style="display: block;">
+        <!-- Stick Canvas in here -->
+      </div>  
     </div>
-
+    <br>
     <div class="ethereum_data_wrapper">
       <!-- Set the ethereum data wrapper to take up about 50% of the sparkline wrapper -->
       <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
       <div id="currencyPrice"> {{ethPrice}} </div>
       <ion-grid>
-          <ion-row>
-            <ion-col></ion-col>
-            <ion-col class="subtextData" id="currencySubtext">Ethereum &nbsp; <img src="../../../assets/icon/eth.png" style="height: 20px;"></ion-col>
-            <ion-col></ion-col>
-          </ion-row>
-        </ion-grid>
-        <div class="chart_wrapper">
-
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col class="subtextData" id="currencySubtext">Ethereum &nbsp; <img src="../../../assets/icon/eth.png" style="height: 20px;"></ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
+          <div class="chart_wrapper" style="display: block;">
+              <!-- Stick canvas in here -->
+          </div>
         </div>
     </div>
-
-  </div>
 
   <div class="wallets_wrapper">
     <!-- Set the wallets wrapper div to take up about 40-45% of the screen -->
