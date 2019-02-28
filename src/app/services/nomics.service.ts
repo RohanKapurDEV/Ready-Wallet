@@ -21,6 +21,9 @@ export class NomicsService {
   }
 
   pullChartData() {
-    
+    // encodeURIComponent((new Date()).toISOString()) -- RFC3339 Format timestamp (URI Escaped) - Required for API Call
+    // ---------------------------------------------------
+    // var yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000))
+    // encodeURIComponent((yesterday).toISOString()) -- Correct format for 'start' param in API cal 
   }
 }
