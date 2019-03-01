@@ -12,6 +12,9 @@ export class LandingPage implements OnInit {
 
   btcPrice: string;
   ethPrice: string;
+
+  btcPriceLoad: boolean = false;
+  ethPriceLoad: boolean = false;
   
   btcChartLabels: any = [];
   ethChartLabels: any = [];
@@ -22,7 +25,7 @@ export class LandingPage implements OnInit {
   lineChartType: string = 'line';
   lineChartLegend: boolean = false;
 
-  lineChartColors: any = [
+  btclineChartColors: any = [
     {
       borderColor: '#F39415'
     }
@@ -83,13 +86,15 @@ export class LandingPage implements OnInit {
 
   pullBTCPriceFromNomics() {
     this.nomics.getPriceBySymbol('BTC').subscribe(
-      (result) => {this.btcPrice = numeral(result[0].price).format('$ 0,0.00')}
+      (result) => {this.btcPrice = numeral(result[0].price).format('$ 0,0.00'),
+      this.btcPriceLoad = true;}
     )
   }
   
   pullETHPriceFromNomics() {
     this.nomics.getPriceBySymbol('ETH').subscribe(
-      (result) => {this.ethPrice = numeral(result[0].price).format('$ 0,0.00')}
+      (result) => {this.ethPrice = numeral(result[0].price).format('$ 0,0.00'),
+      this.ethPriceLoad = true;}
     )
   }
 

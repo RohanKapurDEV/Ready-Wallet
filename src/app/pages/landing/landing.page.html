@@ -8,6 +8,9 @@
     <div class="bitcoin_data_wrapper">
       <!-- Set the bitcoin data wrapper to take up about 50% of the sparkline wrapper -->
       <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
+      <div *ngIf="!btcPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
+        <ion-spinner name="crescent"></ion-spinner>
+      </div>
       <div id="currencyPrice"> {{btcPrice}} </div>
       <ion-grid>
         <ion-row>
@@ -24,7 +27,7 @@
             [labels]="btcChartLabels"
             [datasets]="btcChartDataset"
             [options]="btcChartsOptions"
-            [colors] = "lineChartColors"
+            [colors] = "btclineChartColors"
             [legend]="lineChartLegend"
             [chartType]="lineChartType"></canvas>
           </div>
@@ -34,6 +37,9 @@
     <div class="ethereum_data_wrapper">
       <!-- Set the ethereum data wrapper to take up about 50% of the sparkline wrapper -->
       <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
+      <div *ngIf="!ethPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
+        <ion-spinner name="crescent"></ion-spinner>
+      </div>
       <div id="currencyPrice"> {{ethPrice}} </div>
       <ion-grid>
         <ion-row>
@@ -57,7 +63,7 @@
         </div>
     </div>
   </div>
-
+  <br>
   <div class="wallets_wrapper">
     <!-- Set the wallets wrapper div to take up about 30-35% of the screen -->
     <ion-grid>
