@@ -1,6 +1,8 @@
 {
   "name": "Ready Wallet Beta",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "a527ae2f"
 }
