@@ -16,9 +16,18 @@
           <ion-col></ion-col>
         </ion-row>
       </ion-grid>
-      <div class="chart_wrapper" style="display: block;">
-        <!-- Stick Canvas in here -->
-        <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
+      <div class="chart_wrapper">
+          <!-- Stick canvas in here -->
+          <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
+          <div *ngIf="loadBtcChart" style="width: 100%; height: 100%; display: block;">
+            <canvas baseChart 
+            [labels]="btcChartLabels"
+            [datasets]="btcChartDataset"
+            [options]="btcChartsOptions"
+            [colors] = "lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"></canvas>
+          </div>
       </div>  
     </div>
     <br>
@@ -33,12 +42,21 @@
           <ion-col></ion-col>
         </ion-row>
       </ion-grid>
-          <div class="chart_wrapper" style="display: block;">
-              <!-- Stick canvas in here -->
-              <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
+        <div class="chart_wrapper">
+          <!-- Stick canvas in here -->
+          <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
+          <div *ngIf="loadEthChart" style="width: 100%; height: 100%; display: block;">
+              <canvas baseChart 
+              [labels]="ethChartLabels"
+              [datasets]="ethChartDataset"
+              [options]="btcChartsOptions"
+              [colors] = "ethlineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"></canvas>
           </div>
         </div>
     </div>
+  </div>
 
   <div class="wallets_wrapper">
     <!-- Set the wallets wrapper div to take up about 30-35% of the screen -->

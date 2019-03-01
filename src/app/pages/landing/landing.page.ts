@@ -10,14 +10,75 @@ var numeral = require('numeral');
 })
 export class LandingPage implements OnInit {
 
-  btcPrice: any;
+  btcPrice: string;
   ethPrice: string;
+  
+  btcChartLabels: any = [];
+  ethChartLabels: any = [];
+
+  btcChartDataset: any = [{ data: [], fill: false }];
+  ethChartDataset: any = [{ data: [], fill: false }];
+
+  lineChartType: string = 'line';
+  lineChartLegend: boolean = false;
+
+  lineChartColors: any = [
+    {
+      borderColor: '#F39415'
+    }
+  ]
+
+  ethlineChartColors: any = [
+    {
+      borderColor: '#4B01E0'
+    }
+  ]
+
+  btcChartsOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+    elements: {
+      line: {
+        borderWidth: 4
+      },
+      point: {
+        radius: 0
+      }
+    },
+    tooltips: {
+      enabled: true
+    },
+    scales: {
+      yAxes: [
+        {
+          display: false
+        }
+      ],
+      xAxes: [
+        {
+          display: false
+        }
+      ]
+    },
+    animation: {
+      duration: 800,
+      easing: 'easeOutQuint'
+    }
+  }
+
+  loadEthChart: boolean = false;
+  loadBtcChart: boolean = false;
 
   constructor(private nomics: NomicsService) { }
 
   ngOnInit() {
-    this.pullBTCPriceFromNomics()
-    this.pullETHPriceFromNomics()
+    this.pullBTCChartFromNomics();
+    this.pullBTCPriceFromNomics();
+    this.pullETHPriceFromNomics();
+    this.pullETHChartFromNomics();
   }
 
   pullBTCPriceFromNomics() {
@@ -29,6 +90,22 @@ export class LandingPage implements OnInit {
   pullETHPriceFromNomics() {
     this.nomics.getPriceBySymbol('ETH').subscribe(
       (result) => {this.ethPrice = numeral(result[0].price).format('$ 0,0.00')}
+    )
+  }
+
+  pullBTCChartFromNomics() {
+    this.nomics.pullChartData('BTC').subscribe(
+      (result) => {this.btcChartDataset[0].data = result[0].prices,
+      this.btcChartLabels = result[0].timestamps,
+      this.loadBtcChart = true}
+    )
+  }
+
+  pullETHChartFromNomics() {
+    this.nomics.pullChartData('ETH').subscribe(
+      (result) => {this.ethChartDataset[0].data = result[0].prices,
+      this.ethChartLabels = result[0].timestamps,
+      this.loadEthChart = true}
     )
   }
 

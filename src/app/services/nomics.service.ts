@@ -20,10 +20,18 @@ export class NomicsService {
     )
   }
 
-  pullChartData() {
+  pullChartData(sym: string) {
     // encodeURIComponent((new Date()).toISOString()) -- RFC3339 Format timestamp (URI Escaped) - Required for API Call
     // ---------------------------------------------------
     // var yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000))
-    // encodeURIComponent((yesterday).toISOString()) -- Correct format for 'start' param in API cal 
+    // encodeURIComponent((yesterday).toISOString()) -- Correct format for 'start' param in API call
+
+    let yesterdayISO8061 = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
+    let yesterdayRFC3339 = encodeURIComponent((yesterdayISO8061).toISOString());
+
+    return this.http.get(`${this.apiUrl}/currencies/sparkline?key=${this.apiKey}&start=${yesterdayRFC3339}`).pipe(
+      tap(console.log),
+      map(array => array.filter(obj => obj.currency === sym))
+    )
   }
 }
