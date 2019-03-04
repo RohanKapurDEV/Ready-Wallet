@@ -55,6 +55,13 @@
 
 #more_icon{
     display: flex;
-    justify-content: center; /* align horizontal */
+    justify-content: flex-end; /* align horizontal to the end, use 'center' for middle placement */
     align-items: center;
+}
+
+.middle_button {
+    display: flex;
+    justify-content: center; /* align horizontal to the end, use 'center' for middle placement */
+    align-items: center;
+    height: 100%;
 }

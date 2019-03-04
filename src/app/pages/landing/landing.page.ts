@@ -10,6 +10,8 @@ var numeral = require('numeral');
 })
 export class LandingPage implements OnInit {
 
+  wallets = [];
+
   btcPrice: string;
   ethPrice: string;
 
@@ -19,21 +21,23 @@ export class LandingPage implements OnInit {
   btcChartLabels: any = [];
   ethChartLabels: any = [];
 
-  btcChartDataset: any = [{ data: [], fill: false }];
-  ethChartDataset: any = [{ data: [], fill: false }];
+  btcChartDataset: any = [{ data: [1, 1, 1, 1, 1], fill: false }];
+  ethChartDataset: any = [{ data: [1, 1, 1, 1, 1], fill: false }];
 
   lineChartType: string = 'line';
   lineChartLegend: boolean = false;
 
   btclineChartColors: any = [
     {
-      borderColor: '#F39415'
+      borderColor: '#F39415',
+      backgroundColor: 'rgba(243, 148, 21, 0.3)'
     }
   ]
 
   ethlineChartColors: any = [
     {
-      borderColor: '#4B01E0'
+      borderColor: '#4B01E0',
+      backgroundColor: 'rgba(81, 7, 228, 0.3)'
     }
   ]
 

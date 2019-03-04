@@ -21,7 +21,7 @@
       <div class="chart_wrapper">
           <!-- Stick canvas in here -->
           <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
-          <div *ngIf="loadBtcChart" style="width: 100%; height: 100%; display: block;">
+          <div style="width: 100%; height: 100%; display: block;">
             <canvas baseChart 
             [labels]="btcChartLabels"
             [datasets]="btcChartDataset"
@@ -50,7 +50,7 @@
         <div class="chart_wrapper">
           <!-- Stick canvas in here -->
           <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
-          <div *ngIf="loadEthChart" style="width: 100%; height: 100%; display: block;">
+          <div style="width: 100%; height: 100%; display: block;">
               <canvas baseChart 
               [labels]="ethChartLabels"
               [datasets]="ethChartDataset"
@@ -71,6 +71,9 @@
         <ion-col id="more_icon" size=2> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
       </ion-row>
     </ion-grid>
+    <div *ngIf="wallets.length === 0" class="middle_button">
+      <img src="../../../assets/icon/add_wallet_button.svg" alt="">
+    </div>
   </div>
 
 </ion-content>
