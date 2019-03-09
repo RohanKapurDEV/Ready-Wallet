@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24.063" height="6.016" viewBox="0 0 24.063 6.016"><g transform="translate(-332.969 -518.992)"><circle cx="3.008" cy="3.008" r="3.008" transform="translate(332.969 518.992)" fill="#263238"/><circle cx="3.008" cy="3.008" r="3.008" transform="translate(341.992 518.992)" fill="#263238"/><circle cx="3.008" cy="3.008" r="3.008" transform="translate(351.016 518.992)" fill="#263238"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="8" viewBox="0 0 34 8">
+  <g id="Group_225" data-name="Group 225" transform="translate(-352 -518)">
+    <rect id="Rectangle_228" data-name="Rectangle 228" width="8" height="8" rx="3" transform="translate(365 518)" fill="#263238"/>
+    <rect id="Rectangle_229" data-name="Rectangle 229" width="8" height="8" rx="3" transform="translate(378 518)" fill="#263238"/>
+    <rect id="Rectangle_230" data-name="Rectangle 230" width="8" height="8" rx="3" transform="translate(352 518)" fill="#263238"/>
+  </g>
+</svg>

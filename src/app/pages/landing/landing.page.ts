@@ -76,9 +76,6 @@ export class LandingPage implements OnInit {
     }
   }
 
-  loadEthChart: boolean = false;
-  loadBtcChart: boolean = false;
-
   constructor(private nomics: NomicsService) { }
 
   ngOnInit() {
@@ -105,16 +102,14 @@ export class LandingPage implements OnInit {
   pullBTCChartFromNomics() {
     this.nomics.pullChartData('BTC').subscribe(
       (result) => {this.btcChartDataset[0].data = result[0].prices,
-      this.btcChartLabels = result[0].timestamps,
-      this.loadBtcChart = true}
+      this.btcChartLabels = result[0].timestamps}
     )
   }
 
   pullETHChartFromNomics() {
     this.nomics.pullChartData('ETH').subscribe(
       (result) => {this.ethChartDataset[0].data = result[0].prices,
-      this.ethChartLabels = result[0].timestamps,
-      this.loadEthChart = true}
+      this.ethChartLabels = result[0].timestamps}
     )
   }
 
