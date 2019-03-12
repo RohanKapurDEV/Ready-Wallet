@@ -25,6 +25,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.0.0",
     "@ionic/pro": "2.0.4",
+    "animate.css": "^3.7.0",
     "chart.js": "^2.7.3",
     "cordova-android": "7.1.4",
     "cordova-plugin-device": "^2.0.2",
@@ -40,6 +41,7 @@
     "numeral": "^2.0.6",
     "odometer": "^0.4.8",
     "rxjs": "~6.3.3",
+    "web3": "^1.0.0-beta.48",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {

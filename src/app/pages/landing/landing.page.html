@@ -1,67 +1,68 @@
 <ion-content>
   <!-- Line breaks for semantic spacing, should probably modify for percentage based div spacing but fuck it -->
   <br> 
-  <div class="sparkline_wrapper"> 
-    <!-- Set the sparkline wrapper div to take up about 55-57% of the screen -->
-    
-    <div class="bitcoin_data_wrapper">
-      <!-- Set the bitcoin data wrapper to take up about 50% of the sparkline wrapper -->
-      <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
-      <div *ngIf="!btcPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
-        <ion-spinner name="crescent"></ion-spinner>
-      </div>
-      <div id="currencyPrice"> {{btcPrice}} </div>
-      <ion-grid>
-        <ion-row>
-          <ion-col></ion-col>
-          <ion-col class="subtextData" id="currencySubtext">Bitcoin &nbsp; <img src="../../../assets/icon/btc.png" style="height: 20px;"></ion-col>
-          <ion-col></ion-col>
-        </ion-row>
-      </ion-grid>
-      <div class="chart_wrapper">
-          <!-- Stick canvas in here -->
-          <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
-          <div style="width: 100%; height: 100%; display: block;">
-            <canvas baseChart 
-            [labels]="btcChartLabels"
-            [datasets]="btcChartDataset"
-            [options]="btcChartsOptions"
-            [colors] = "btclineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"></canvas>
+      <div class="sparkline_wrapper"> 
+        <!-- Set the sparkline wrapper div to take up about 55-57% of the screen -->
+
+        <div class="bitcoin_data_wrapper">
+          <!-- Set the bitcoin data wrapper to take up about 50% of the sparkline wrapper -->
+          <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
+          <div *ngIf="!btcPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
+            <ion-spinner name="crescent"></ion-spinner>
           </div>
-      </div>  
-    </div>
-    <br>
-    <div class="ethereum_data_wrapper">
-      <!-- Set the ethereum data wrapper to take up about 50% of the sparkline wrapper -->
-      <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
-      <div *ngIf="!ethPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
-        <ion-spinner name="crescent"></ion-spinner>
-      </div>
-      <div id="currencyPrice"> {{ethPrice}} </div>
-      <ion-grid>
-        <ion-row>
-          <ion-col></ion-col>
-          <ion-col class="subtextData" id="currencySubtext">Ethereum &nbsp; <img src="../../../assets/icon/eth.png" style="height: 20px;"></ion-col>
-          <ion-col></ion-col>
-        </ion-row>
-      </ion-grid>
-        <div class="chart_wrapper">
-          <!-- Stick canvas in here -->
-          <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
-          <div style="width: 100%; height: 100%; display: block;">
-              <canvas baseChart 
-              [labels]="ethChartLabels"
-              [datasets]="ethChartDataset"
-              [options]="btcChartsOptions"
-              [colors] = "ethlineChartColors"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"></canvas>
-          </div>
+          <div id="currencyPrice"> {{btcPrice}} </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col class="subtextData" id="currencySubtext">Bitcoin &nbsp; <img src="../../../assets/icon/btc.png" style="height: 20px;"></ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-grid>
+          <div class="chart_wrapper">
+              <!-- Stick canvas in here -->
+              <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
+              <div style="width: 100% !important; height: 100% !important; display: flex !important;">
+                <canvas baseChart 
+                [labels]="btcChartLabels"
+                [datasets]="btcChartDataset"
+                [options]="btcChartsOptions"
+                [colors] = "btclineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+              </div>
+          </div>  
         </div>
-    </div>
-  </div>
+        <br>
+        <div class="ethereum_data_wrapper">
+          <!-- Set the ethereum data wrapper to take up about 50% of the sparkline wrapper -->
+          <!-- Add 3 divs in here, one for price, another for asset name and icon, and the last one for the chart -->
+          <div *ngIf="!ethPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
+            <ion-spinner name="crescent"></ion-spinner>
+          </div>
+          <div id="currencyPrice"> {{ethPrice}} </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col class="subtextData" id="currencySubtext">Ethereum &nbsp; <img src="../../../assets/icon/eth.png" style="height: 20px;"></ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-grid>
+            <div class="chart_wrapper">
+              <!-- Stick canvas in here -->
+              <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
+              <div style="width: 100%; height: 100%; display: block;">
+                  <canvas baseChart 
+                  [labels]="ethChartLabels"
+                  [datasets]="ethChartDataset"
+                  [options]="btcChartsOptions"
+                  [colors] = "ethlineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"></canvas>
+              </div>
+            </div>
+        </div>
+      </div> 
+
   <br>
   <div class="wallets_wrapper">
     <!-- Set the wallets wrapper div to take up about 30-35% of the screen -->
@@ -71,7 +72,7 @@
         <ion-col id="more_icon" size=2> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
       </ion-row>
     </ion-grid>
-    <div *ngIf="wallets.length === 0" class="middle_button">
+    <div *ngIf="wallets.length === 0" class="animated bounceInUp middle_button">
       <img src="../../../assets/icon/add_wallet_button.svg" alt="">
     </div>
   </div>

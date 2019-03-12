@@ -1,6 +1,12 @@
+
+ion-content {
+    --overflow: hidden;
+}
+
 .sparkline_wrapper {
     height: 55%;
     width: 100%;;
+    // overflow: scroll; ===== Uncomment when adding mroe graphs 
 }
 
 .bitcoin_data_wrapper {
@@ -38,11 +44,11 @@
 }
 
 .chart_wrapper {
-    height: 75%;
+    height: 75% !important;
 }
 
 .wallets_wrapper {
-    height: 32.5%;
+    height: 35%;
     margin: 1em;
 }
 
@@ -63,7 +69,7 @@
     display: flex;
     justify-content: center; /* align horizontal to the end, use 'center' for middle placement */
     align-items: center;
-    height: 80%;
+    height: 90%;
     transition: all .05s ease-in;
 }
 

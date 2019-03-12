@@ -21,8 +21,8 @@ export class LandingPage implements OnInit {
   btcChartLabels: any = [];
   ethChartLabels: any = [];
 
-  btcChartDataset: any = [{ data: [1, 1, 1, 1, 1], fill: false }];
-  ethChartDataset: any = [{ data: [1, 1, 1, 1, 1], fill: false }];
+  btcChartDataset: any = [{ data: [0, 0, 0, 0, 0, 0, 0], fill: false }];
+  ethChartDataset: any = [{ data: [0, 0, 0, 0, 0, 0, 0], fill: false }];
 
   lineChartType: string = 'line';
   lineChartLegend: boolean = false;
@@ -74,6 +74,11 @@ export class LandingPage implements OnInit {
       duration: 800,
       easing: 'easeOutQuint'
     }
+  }
+
+  swiperOptions: {
+    autoHeight: true
+    effect: 'cube'
   }
 
   constructor(private nomics: NomicsService) { }
