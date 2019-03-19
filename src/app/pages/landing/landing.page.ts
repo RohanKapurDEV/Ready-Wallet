@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NomicsService } from '../../services/nomics.service'
-import * as $ from 'jquery';
+import { NomicsService } from '../../services/nomics.service';
 var numeral = require('numeral');
 
 @Component({

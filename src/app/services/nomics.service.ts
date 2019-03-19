@@ -27,10 +27,10 @@ export class NomicsService {
     // encodeURIComponent((yesterday).toISOString()) -- Correct format for 'start' param in API call
 
     let yesterdayISO8061 = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
-    let yesterdayRFC3339 = encodeURIComponent((yesterdayISO8061).toISOString());
+    let yesterdayRFC3339 = encodeURIComponent((yesterdayISO8061).toISOString()); // This line here takes the necessary data (iso8061) turns it into (rfc3339) and then, encodes that string so its compatible with the API call.
 
     return this.http.get(`${this.apiUrl}/currencies/sparkline?key=${this.apiKey}&start=${yesterdayRFC3339}`).pipe(
-      tap(console.log),
+      tap(console.log), 
       map(array => array.filter(obj => obj.currency === sym))
     )
   }
