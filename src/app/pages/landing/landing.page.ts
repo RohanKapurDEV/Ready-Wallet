@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NomicsService } from '../../services/nomics.service';
+import { StorageService, GeneratedWallet } from '../../services/storage.service';
+import { Web3Service } from '../../services/web3.service';
 var numeral = require('numeral');
 
 @Component({
@@ -9,7 +11,7 @@ var numeral = require('numeral');
 })
 export class LandingPage implements OnInit {
 
-  wallets = [];
+  wallets: any = [];
 
   btcPrice: string;
   ethPrice: string;
@@ -80,13 +82,24 @@ export class LandingPage implements OnInit {
     effect: 'cube'
   }
 
-  constructor(private nomics: NomicsService) { }
+  constructor(private nomics: NomicsService, private storage: StorageService, private web3: Web3Service) { }
 
   ngOnInit() {
     this.pullBTCChartFromNomics();
     this.pullBTCPriceFromNomics();
     this.pullETHPriceFromNomics();
     this.pullETHChartFromNomics();
+    this.setWallets();
+  }
+
+  setWallets() {
+    this.storage.read().then((expectedArray) => {
+      if (expectedArray === null) {
+        console.log('No wallets exist')
+      } else {
+        this.wallets = expectedArray;
+      }
+    })
   }
 
   pullBTCPriceFromNomics() {

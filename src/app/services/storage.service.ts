@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 export interface GeneratedWallet {
-  wallet_id: number,
+  wallet_id: string,
   wallet_name: string,
   wallet_address: string,
   wallet_route: string,
@@ -33,7 +33,7 @@ export class StorageService {
   }
 
   // This function fetches all wallets stored, useful for fetching length of array for wallet id asssignment
-  read(): Promise<GeneratedWallet[]> {
+  read(): Promise<any> {
     return this.storage.get(WALLETS_KEY);
   }
 
@@ -59,7 +59,7 @@ export class StorageService {
   }
 
   // This function deletes existing wallets from the wallet array
-  delete(id: number) {
+  delete(id: string) {
     return this.storage.get(WALLETS_KEY).then((expectedArray: GeneratedWallet[]) => {
       if (!expectedArray || expectedArray.length === 0) {
         return null;
