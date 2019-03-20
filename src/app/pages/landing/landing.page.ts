@@ -77,9 +77,11 @@ export class LandingPage implements OnInit {
     }
   }
 
-  swiperOptions: {
-    autoHeight: true
-    effect: 'cube'
+  sliderOptions = {
+    spaceBetween: 40,
+    slidesPerView: 'auto',
+    slidesOffsetBefore: 30,
+    slidesOffsetAfter: 30
   }
 
   constructor(private nomics: NomicsService, private storage: StorageService, private web3: Web3Service) { }
@@ -100,6 +102,12 @@ export class LandingPage implements OnInit {
         this.wallets = expectedArray;
       }
     })
+  }
+
+  addWallet() {
+    let wallet = this.web3.createWallet('random');
+    this.storage.create(wallet);
+    this.setWallets()
   }
 
   pullBTCPriceFromNomics() {

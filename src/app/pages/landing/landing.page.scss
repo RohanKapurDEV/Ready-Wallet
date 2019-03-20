@@ -52,6 +52,15 @@ ion-content {
     margin: 1em;
 }
 
+.wallet_display {
+    height: 90%;
+    margin: 0;
+}
+
+.wallet_title_grid {
+    margin: 1em;
+}
+
 #wallets_title {
     font-family: SF-Pro-Display-Bold;
     font-size: 2em;
@@ -69,7 +78,7 @@ ion-content {
     display: flex;
     justify-content: center; /* align horizontal to the end, use 'center' for middle placement */
     align-items: center;
-    height: 90%;
+    height: 30%;
     transition: all .05s ease-in;
 }
 
@@ -79,5 +88,20 @@ ion-content {
     /* box-shadow: 0 3px 15px -2px; */
 }
 
+#card {
+    height: 9em;
+    width: 15em;
+    min-height: 100%;
+    border-radius: 17.5px;
+    background-color: #263238;
+    transition: all .05s ease-in;
+    background-size: cover;
+}
+
+#card:active {
+    /* font-size: 1rem; */
+    transform: scale(.85);
+    /* box-shadow: 0 3px 15px -2px; */
+}
 
 

@@ -9,7 +9,7 @@
           <div *ngIf="!btcPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
             <ion-spinner name="crescent"></ion-spinner>
           </div>
-          <div id="currencyPrice"> {{btcPrice}} </div>
+          <div id="currencyPrice" (click)="addWallet()" > {{btcPrice}} </div>
           <ion-grid>
             <ion-row>
               <ion-col></ion-col>
@@ -63,17 +63,48 @@
       </div> 
 
   <div style="height: 1em;"></div>
-  <div class="wallets_wrapper">
-    <!-- Set the wallets wrapper div to take up about 30-35% of the screen -->
-    <ion-grid>
+  
+  <div class="wallet_display">
+    
+    <ion-grid class="wallet_title_grid">
       <ion-row>
         <ion-col id="wallets_title" size=10>Wallets</ion-col>
         <ion-col id="more_icon" size=2> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
       </ion-row>
     </ion-grid>
-    <div *ngIf="wallets.length === 0" class="middle_button">
+
+    <div class="middle_button"  *ngIf="wallets.length === 0">
+      <img class="animated bounceInUp" src="../../../assets/icon/add_wallet_button.svg" alt="">
+    </div>
+    
+    <div style="height: 1em;"></div>
+
+    <div class="wallet_swiper" *ngIf="wallets.length >= 1">
+      <ion-slides [options]="sliderOptions">
+        <ion-slide id="card" *ngFor="let wallet of wallets">
+
+        </ion-slide>
+      </ion-slides>
+    </div>
+    
+  </div>
+    <!-- Set the wallets wrapper div to take up about 30-35% of the screen -->
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col id="wallets_title" size=10>Wallets</ion-col>
+        <ion-col id="more_icon" size=2> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="middle_button"  *ngIf="wallets.length === 0">
       <img class="animated bounceInUp" src="../../../assets/icon/add_wallet_button.svg" alt="">
     </div>
   </div>
+
+  <ion-grid>
+      <ion-row>
+        <ion-col id="wallets_title" size=10>Wallets</ion-col>
+        <ion-col id="more_icon" size=2> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
+      </ion-row>
+    </ion-grid> -->
   
 </ion-content>
