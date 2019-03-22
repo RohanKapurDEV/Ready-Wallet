@@ -5,6 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'splash', loadChildren: './pages/splash/splash.module#SplashPageModule' },
   { path: 'landing', loadChildren: './pages/landing/landing.module#LandingPageModule' },
+  { path: 'add-wallet', loadChildren: './pages/add-wallet/add-wallet.module#AddWalletPageModule' },
 ];
 
 @NgModule({

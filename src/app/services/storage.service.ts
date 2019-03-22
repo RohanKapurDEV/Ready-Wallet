@@ -8,7 +8,8 @@ export interface GeneratedWallet {
   wallet_route: string,
   wallet_type: string,
   wallet_symbol: string,
-  wallet_creation_timestamp?: number
+  wallet_creation_timestamp?: number,
+  wallet_balance?: string
 }
 
 const WALLETS_KEY: string = 'WALLETS_KEY';
