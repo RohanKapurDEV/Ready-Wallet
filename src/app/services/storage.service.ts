@@ -33,7 +33,7 @@ export class StorageService {
     })
   }
 
-  // This function fetches all wallets stored, useful for fetching length of array for wallet id asssignment
+  // This function fetches all wallets stored
   read(): Promise<any> {
     return this.storage.get(WALLETS_KEY);
   }

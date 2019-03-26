@@ -1,18 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1500" height="800" viewBox="0 0 1500 800">
   <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#8333ff"/>
-      <stop offset="1" stop-color="#4a00e0"/>
-    </linearGradient>
-    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 128 128">
-      <image width="128" height="128" xlink:href="data:image/png;base64,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"/>
-    </pattern>
     <clipPath id="clip-Artboard_14">
       <rect width="1500" height="800"/>
     </clipPath>
   </defs>
   <g id="Artboard_14" data-name="Artboard – 14" clip-path="url(#clip-Artboard_14)">
-    <rect width="1500" height="800" fill="url(#linear-gradient)"/>
-    <path id="NoPath_-_Copy_5_" data-name="NoPath - Copy (5)" d="M0,0H447.133V447.133H0Z" transform="translate(967.123 -111.5)" opacity="0.32" fill="url(#pattern)"/>
+    <rect width="1500" height="800" fill="#8a3eff"/>
+    <g id="Group_264" data-name="Group 264" transform="translate(190.687 5.687)">
+      <g id="eth" transform="translate(788.643 -33.357)" opacity="0.32">
+        <path id="Path_334" data-name="Path 334" d="M189.612,379.225C84.887,379.225,0,294.338,0,189.612S84.887,0,189.612,0,379.225,84.887,379.225,189.612,294.338,379.225,189.612,379.225Zm94.735-187.017L195.514,47.4,106.657,192.219l88.857,51.586Zm.071,16.555-88.9,51.563-88.857-51.551,88.857,122.987Z" fill="#fff" fill-rule="evenodd"/>
+        <g id="Group_250" data-name="Group 250" transform="translate(105.969 47.75)">
+          <path id="Path_335" data-name="Path 335" d="M16.5,4V109.885l89.495,39.99Z" transform="translate(73.008 -4)" fill="rgba(255,255,255,0.5)"/>
+          <path id="Path_336" data-name="Path 336" d="M98.506,4,9,149.875l89.507-39.99Z" transform="translate(-9 -4)" fill="#fff" opacity="0.8"/>
+          <path id="Path_337" data-name="Path 337" d="M16.5,69.568v71.947l89.554-123.9Z" transform="translate(73.008 142.152)" fill="rgba(255,255,255,0.5)"/>
+          <path id="Path_338" data-name="Path 338" d="M98.506,141.514V69.556L9,17.616Z" transform="translate(-9 142.152)" fill="#fff" opacity="0.796"/>
+          <path id="Path_339" data-name="Path 339" d="M9,52.838,98.507,104.8V12.872Z" transform="translate(-9 91.527)" fill="rgba(255,255,255,0.5)"/>
+        </g>
+      </g>
+    </g>
   </g>
 </svg>
