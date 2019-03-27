@@ -104,4 +104,24 @@ ion-content {
     /* box-shadow: 0 3px 15px -2px; */
 }
 
+.slideInnerWrapper {
+    height: 100%;
+    width: 100%;
+    padding: 0.5em;
+}
 
+.wallet_second_column {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#wallet_arrow {
+    height: 1em;
+    transition: all .05s ease-in;
+}
+
+#wallet_arrow:active {
+    transform: scale(.85);
+}

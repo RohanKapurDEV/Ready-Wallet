@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NomicsService } from '../../services/nomics.service';
-import { StorageService, GeneratedWallet } from '../../services/storage.service';
+import { StorageService } from '../../services/storage.service';
 import { Web3Service } from '../../services/web3.service';
 var numeral = require('numeral');
 
