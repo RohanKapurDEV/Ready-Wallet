@@ -105,7 +105,7 @@ export class LandingPage implements OnInit {
   }
 
   addWallet() {
-    let wallet = this.web3.createWallet('random');
+    let wallet = this.web3.createWallet('Rohans BTC Wallet');
     this.storage.create(wallet);
     this.setWallets()
   }
