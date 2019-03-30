@@ -79,7 +79,7 @@
     
     <div style="height: 1em;"></div>
 
-    <div class="wallet_swiper" *ngIf="wallets.length >= 1">
+    <div class="wallet_swiper animated fadeIn" *ngIf="wallets.length >= 1">
       <ion-slides [options]="sliderOptions">
         <ion-slide id="card" *ngFor="let wallet of wallets"
         [ngStyle]="{'background-image': wallet.wallet_type == 'Ethereum' ? 'url(../../../assets/images/cards/ethereum_card_background.svg)' : 'url(../../../assets/images/cards/bitcoin_card_background.svg)'}">
