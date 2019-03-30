@@ -21,7 +21,7 @@ export class LandingPage implements OnInit {
   
   btcChartLabels: any = [];
   ethChartLabels: any = [];
-
+  
   btcChartDataset: any = [{ data: [0, 0, 0, 0, 0, 0, 0], fill: false }];
   ethChartDataset: any = [{ data: [0, 0, 0, 0, 0, 0, 0], fill: false }];
 

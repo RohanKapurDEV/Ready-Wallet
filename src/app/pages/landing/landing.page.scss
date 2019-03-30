@@ -72,6 +72,11 @@ ion-content {
     display: flex;
     justify-content: flex-end; /* align horizontal to the end, use 'center' for middle placement */
     align-items: center;
+    transition: all .05s ease-in;
+}
+
+#more_icon:active {
+    transform: scale(.85);
 }
 
 .middle_button {
@@ -84,7 +89,7 @@ ion-content {
 
 .middle_button:active {
     /* font-size: 1rem; */
-    transform: scale(.85);
+    transform: scale(.2);
     /* box-shadow: 0 3px 15px -2px; */
 }
 
