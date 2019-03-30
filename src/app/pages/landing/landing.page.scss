@@ -72,11 +72,6 @@ ion-content {
     display: flex;
     justify-content: flex-end; /* align horizontal to the end, use 'center' for middle placement */
     align-items: center;
-    transition: all .05s ease-in;
-}
-
-#more_icon:active {
-    transform: scale(.5);
 }
 
 .middle_button {
