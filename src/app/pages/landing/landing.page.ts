@@ -94,7 +94,8 @@ export class LandingPage implements OnInit {
     this.setWallets();
   }
 
-  checkIphoneX() {
+  // The following function checks and validates device variants in context to iPhone X and above for display correction due to the notch
+  checkModernAppleVariants() {
     
   }
 
