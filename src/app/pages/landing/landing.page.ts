@@ -94,6 +94,10 @@ export class LandingPage implements OnInit {
     this.setWallets();
   }
 
+  checkIphoneX() {
+    
+  }
+
   setWallets() {
     this.storage.read().then((expectedArray) => {
       if (expectedArray === null) {
@@ -104,7 +108,7 @@ export class LandingPage implements OnInit {
     })
   }
 
-  addWallet() {
+  addWallet() { // This function is only for testing, should be re-imported to add-wallet component ts file when necessary
     let wallet = this.web3.createWallet("Rohan's ETH Wallet");
     this.storage.create(wallet);
     this.setWallets()
