@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { ActionSheet } from '@ionic-native/action-sheet/ngx'
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -22,7 +23,8 @@ import { ChartsModule } from 'ng2-charts';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ActionSheet
   ],
   bootstrap: [AppComponent]
 })

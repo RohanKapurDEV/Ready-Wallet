@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { NomicsService } from '../../services/nomics.service';
 import { StorageService } from '../../services/storage.service';
 import { Web3Service } from '../../services/web3.service';
 var numeral = require('numeral');
+
+import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet/ngx'
 
 @Component({
   selector: 'app-landing',
@@ -85,7 +88,8 @@ export class LandingPage implements OnInit {
     slidesOffsetAfter: 30
   }
 
-  constructor(private nomics: NomicsService, private storage: StorageService, private web3: Web3Service) { }
+  constructor(private nomics: NomicsService, private storage: StorageService, private web3: Web3Service, private actionSheet: ActionSheet,
+    private router: Router) { }
 
   ngOnInit() {
     this.pullBTCChartFromNomics();
@@ -93,6 +97,38 @@ export class LandingPage implements OnInit {
     this.pullETHPriceFromNomics();
     this.pullETHChartFromNomics();
     this.setWallets();
+  }
+
+  async showActionSheet() {
+    try
+      {  let actionSheetLabels = ['Create a new wallet', 'Import a wallet', 'Terms of Service', 'About Ready Wallet'];
+
+        const options: ActionSheetOptions = {
+          title: 'Ready Wallet Options',
+          subtitle: 'Select an option',
+          buttonLabels: actionSheetLabels,
+          addCancelButtonWithLabel: 'Cancel',
+          androidTheme: 5
+        }
+
+        const selectedIndex = await this.actionSheet.show(options);
+        console.log('Selected' + selectedIndex)
+
+        switch(selectedIndex) {
+          case 1:
+            this.router.navigateByUrl('/add-wallet');
+          case 2:
+            break;
+          case 3:
+            break;
+          case 4:
+            break;
+        } 
+      }
+
+      catch(error) {
+        console.log(error)
+      }  
   }
 
   // The following function checks and validates device variants in context to iPhone X and above for display correction due to the stupid fucking notch

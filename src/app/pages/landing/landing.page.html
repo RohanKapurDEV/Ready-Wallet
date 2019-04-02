@@ -69,11 +69,11 @@
     <ion-grid class="wallet_title_grid">
       <ion-row>
         <ion-col id="wallets_title" size=10>Wallets</ion-col>
-        <ion-col id="more_icon" size=2> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
+        <ion-col id="more_icon" size=2 (click)="showActionSheet()"> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
       </ion-row>
     </ion-grid>
 
-    <div class="middle_button"  *ngIf="wallets.length === 0">
+    <div class="middle_button"  *ngIf="wallets.length === 0" [routerLink]="'/add-wallet'" routerDirection="forward">
       <img class="animated bounceInUp" src="../../../assets/icon/add_wallet_button.svg" alt="">
     </div>
     

@@ -80,12 +80,14 @@ ion-content {
     align-items: center;
     height: 30%;
     transition: all .05s ease-in;
+    outline: 0; /* Removes orange border around div during pressdown */
 }
 
 .middle_button:active {
     /* font-size: 1rem; */
     transform: scale(.85);
     /* box-shadow: 0 3px 15px -2px; */
+    outline: 0; /* Removes orange border around div during pressdown */
 }
 
 #card {
