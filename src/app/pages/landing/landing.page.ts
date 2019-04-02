@@ -18,6 +18,7 @@ export class LandingPage implements OnInit {
 
   btcPriceLoad: boolean = false;
   ethPriceLoad: boolean = false;
+  walletArrayLoad: boolean = false; 
   
   btcChartLabels: any = [];
   ethChartLabels: any = [];
@@ -94,7 +95,7 @@ export class LandingPage implements OnInit {
     this.setWallets();
   }
 
-  // The following function checks and validates device variants in context to iPhone X and above for display correction due to the notch
+  // The following function checks and validates device variants in context to iPhone X and above for display correction due to the stupid fucking notch
   checkModernAppleVariants() {
     
   }
@@ -105,12 +106,18 @@ export class LandingPage implements OnInit {
         console.log('No wallets exist')
       } else {
         this.wallets = expectedArray;
-      }
+      };
     })
   }
 
   addWallet() { // This function is only for testing, should be re-imported to add-wallet component ts file when necessary
     let wallet = this.web3.createWallet("Rohan's ETH Wallet");
+    this.storage.create(wallet);
+    this.setWallets()
+  }
+  
+  addWallet2() { // This function is only for testing, should be re-imported to add-wallet component ts file when necessary
+    let wallet = this.web3.createWallet2("Rohan's BTC Wallet");
     this.storage.create(wallet);
     this.setWallets()
   }

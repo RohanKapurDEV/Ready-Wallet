@@ -17,7 +17,7 @@
               <ion-col></ion-col>
             </ion-row>
           </ion-grid>
-          <div class="chart_wrapper"  (click)="addWallet()">
+          <div class="chart_wrapper">
               <!-- Stick canvas in here -->
               <!-- Wrap the canvas in an *ngif that checks for the return data from the API in the component .ts file  -->
               <div style="width: 100%; height: 100%; display: flex;">
@@ -38,7 +38,7 @@
           <div *ngIf="!ethPriceLoad" style="height: 1.7em; display: flex; justify-content: center;">
             <ion-spinner name="crescent"></ion-spinner>
           </div>
-          <div id="currencyPrice"> {{ethPrice}} </div>
+          <div id="currencyPrice" (click)="addWallet2()"> {{ethPrice}} </div>
           <ion-grid>
             <ion-row>
               <ion-col></ion-col>
@@ -89,6 +89,9 @@
               <ion-col style="height: 100%; padding: 0;" size="11">
               <div id="card_text_title">
                 {{ wallet.wallet_name }}
+              </div>
+              <div id="card_text_title">
+                {{ wallet.wallet_balance }}
               </div>
               </ion-col>
               <ion-col style="height: 100%; padding: 0;" size="1">
