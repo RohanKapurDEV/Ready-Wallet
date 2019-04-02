@@ -23,7 +23,7 @@ export class Web3Service {
     return wallet
   }
   
-  createWallet2(wallet_name: string) {
+  createWallet2(wallet_name: string) { // Remove once BTC wallet gen support is added, this is for testing purposes only
     let web3 = new Web3("https://ropsten.infura.io/v3/fcea8205fda14a14bcb9a2dbb27cc46f");
     let wallet: GeneratedWallet = <GeneratedWallet>{}
     let genWallet = web3.eth.accounts.create()

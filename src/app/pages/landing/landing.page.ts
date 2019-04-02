@@ -108,7 +108,7 @@ export class LandingPage implements OnInit {
 
         const options: ActionSheetOptions = {
           title: 'Ready Wallet Options',
-          subtitle: 'Select an option',
+          subtitle: "Quick tip: You can open a chat with Ready Wallet support right from within your wallet. Just go to the options panel and click on 'Support'",
           buttonLabels: actionSheetLabels,
           addCancelButtonWithLabel: 'Cancel',
           androidTheme: 5
