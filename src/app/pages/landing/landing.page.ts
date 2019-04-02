@@ -14,6 +14,8 @@ import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet/ngx'
 })
 export class LandingPage implements OnInit {
 
+  iPhoneXDetected: boolean = false;
+  
   wallets: any = [];
 
   btcPrice: string;
@@ -92,6 +94,7 @@ export class LandingPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.checkModernAppleVariants();
     this.pullBTCChartFromNomics();
     this.pullBTCPriceFromNomics();
     this.pullETHPriceFromNomics();
@@ -133,7 +136,22 @@ export class LandingPage implements OnInit {
 
   // The following function checks and validates device variants in context to iPhone X and above for display correction due to the stupid fucking notch
   checkModernAppleVariants() {
-    
+    let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+    let ratio = window.devicePixelRatio || 1;
+    let screen = {
+      width: window.screen.width * ratio,
+      height: window.screen.height * ratio
+    };
+
+    if (iOS && screen.width == 1125 && screen.height === 2436) {
+      this.iPhoneXDetected = true;
+      console.log('iPhone X detected');
+      document.getElementById('notch').style.height="2.5em";
+    } else {
+      this.iPhoneXDetected = false;
+      console.log('iPhone X not detected')
+    }
   }
 
   setWallets() {
