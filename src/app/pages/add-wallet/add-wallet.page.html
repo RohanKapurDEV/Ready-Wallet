@@ -1,3 +1,26 @@
 <ion-content padding>
 
+    <div id="notch"></div>
+    <div class="title_grid">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="1" (click)="backToHomeScreen()" matRipple>
+                    <img src="../../../assets/icon/arrow_back.svg" alt="">
+                </ion-col>
+                <ion-col size="11">
+                    <div class="SF-Pro-Display-Semibold" id="title">&nbsp;&nbsp; Create a new wallet</div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <div style="height: 2em;"></div>
+
+    <div class="inputFormField">
+        <mat-form-field hintLabel="Max 25 characters">
+            <input matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
+            <mat-hint align="end">{{input.value?.length || 0}}/25</mat-hint>
+        </mat-form-field>
+    </div>
+
 </ion-content>

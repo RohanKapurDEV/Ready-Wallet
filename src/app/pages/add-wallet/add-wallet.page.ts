@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-add-wallet',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddWalletPage implements OnInit {
 
-  constructor() { }
+  public walletName: string = '';
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  backToHomeScreen() {
+    this.router.navigateByUrl('/landing')
   }
 
 }

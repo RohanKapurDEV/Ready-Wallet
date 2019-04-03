@@ -13,10 +13,13 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^7.2.11",
+    "@angular/cdk": "^7.3.6",
     "@angular/common": "^7.2.2",
     "@angular/core": "^7.2.2",
     "@angular/forms": "^7.2.2",
     "@angular/http": "^7.2.2",
+    "@angular/material": "^7.3.6",
     "@angular/platform-browser": "^7.2.2",
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",
@@ -45,12 +48,12 @@
     "numeral": "^2.0.6",
     "odometer": "^0.4.8",
     "rxjs": "~6.3.3",
-    "web3": "^1.0.0-beta.48",
+    "web3": "^1.0.0-beta.51",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.12.3",
-    "@angular-devkit/build-angular": "~0.12.3",
+    "@angular-devkit/build-angular": "^0.13.7",
     "@angular-devkit/core": "~7.2.3",
     "@angular-devkit/schematics": "~7.2.3",
     "@angular/cli": "~7.2.3",

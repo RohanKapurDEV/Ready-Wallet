@@ -7,6 +7,10 @@ import { IonicModule } from '@ionic/angular';
 
 import { AddWalletPage } from './add-wallet.page';
 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core'
+
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +23,10 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule
   ],
   declarations: [AddWalletPage]
 })
