@@ -16,13 +16,13 @@ import { ActionSheet } from '@ionic-native/action-sheet/ngx'
 
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material'
+import { MatFormFieldModule, MatInputModule, MatRippleModule, MatRadioModule } from '@angular/material'
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ChartsModule, IonicStorageModule.forRoot(),
-  BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatRippleModule],
+  BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatRadioModule],
   providers: [
     StatusBar,
     SplashScreen,

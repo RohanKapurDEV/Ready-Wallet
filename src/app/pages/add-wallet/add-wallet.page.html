@@ -23,4 +23,22 @@
         </mat-form-field>
     </div>
 
+    <div style="height: 2em;"></div>
+
+    <label id="radio-group-label">Select the wallet's currency:</label>
+    <mat-radio-group aria-labelledby="radio-group-label" class="radioGroup1" [(ngModel)]="selectedType">
+        <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons">
+            {{ type }}
+        </mat-radio-button>
+    </mat-radio-group>
+
+    <div style="height: 5em"></div>
+
+    <!-- <ion-list>
+      <ion-item *ngFor="let entry of agreementForm">
+        <ion-label>{{entry.agreement}}</ion-label>
+        <ion-checkbox slot="start" [(ngModel)]="entry.val"></ion-checkbox>
+      </ion-item>
+    </ion-list> -->
+
 </ion-content>

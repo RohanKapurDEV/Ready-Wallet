@@ -23,7 +23,6 @@ export class LandingPage implements OnInit {
 
   btcPriceLoad: boolean = false;
   ethPriceLoad: boolean = false;
-  walletArrayLoad: boolean = false; 
   
   btcChartLabels: any = [];
   ethChartLabels: any = [];

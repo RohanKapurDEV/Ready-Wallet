@@ -10,6 +10,7 @@ import { AddWalletPage } from './add-wallet.page';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatRippleModule } from '@angular/material/core'
+import { MatRadioModule } from '@angular/material/radio'
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatFormFieldModule,
     MatInputModule,
-    MatRippleModule
+    MatRippleModule,
+    MatRadioModule
   ],
   declarations: [AddWalletPage]
 })
