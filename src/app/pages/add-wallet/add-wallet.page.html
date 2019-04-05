@@ -16,29 +16,70 @@
 
     <div style="height: 2em;"></div>
 
-    <div class="inputFormField">
-        <mat-form-field hintLabel="Max 25 characters">
-            <input matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
-            <mat-hint align="end">{{input.value?.length || 0}}/25</mat-hint>
-        </mat-form-field>
+    <div class="inputWrapper">
+        <div class="inputFormField">
+            <mat-form-field hintLabel="Max 25 characters">
+                <input matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
+                <mat-hint align="end">{{input.value?.length || 0}}/25</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div style="height: 2em;"></div>
+
+        <label id="radio-group-label">Select the wallet's currency:</label>
+        <mat-radio-group aria-labelledby="radio-group-label" class="radioGroup1" [(ngModel)]="selectedType">
+            <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons">
+                {{ type }}
+            </mat-radio-button>
+        </mat-radio-group>
+
+        <div style="height: 3em"></div>
+
+        <div class="checkboxWrapper">
+            <ion-grid style="padding: 0;">
+                <ion-row>
+                    <ion-col size="1">
+                    <ion-checkbox [(ngModel)]="TOS1"></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="11">
+                    <div class="subtext">
+                        I understand that I must back up my private keys after creating the wallet
+                    </div>
+                    </ion-col>
+                </ion-row>
+            
+                <ion-row>
+                    <ion-col size="1">
+                    <ion-checkbox [(ngModel)]="TOS2"></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="11">
+                    <div class="subtext">
+                        I understand that Ready Labs LLC does not control or have any level access to the private keys associated wallets made through Ready Wallet
+                    </div>
+                    </ion-col>
+                </ion-row>
+            
+                <ion-row>
+                    <ion-col size="1">
+                    <ion-checkbox [(ngModel)]="TOS3"></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="11">
+                    <div class="subtext">
+                        I have thoroughly read, and have agreed to the Terms & Conditions and Privacy Policy
+                    </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
     </div>
 
-    <div style="height: 2em;"></div>
+    <div class="addWalletWrapper">
+        <div class="add_wallet" *ngIf="!TOS1 || !TOS2 || !TOS3 || !selectedType || !walletName.length >= 1">
+            <img src="../../../assets/icon/add-wallet-disabled.svg" alt="">
+        </div>
 
-    <label id="radio-group-label">Select the wallet's currency:</label>
-    <mat-radio-group aria-labelledby="radio-group-label" class="radioGroup1" [(ngModel)]="selectedType">
-        <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons">
-            {{ type }}
-        </mat-radio-button>
-    </mat-radio-group>
-
-    <div style="height: 5em"></div>
-
-    <!-- <ion-list>
-      <ion-item *ngFor="let entry of agreementForm">
-        <ion-label>{{entry.agreement}}</ion-label>
-        <ion-checkbox slot="start" [(ngModel)]="entry.val"></ion-checkbox>
-      </ion-item>
-    </ion-list> -->
-
+        <div class="add_wallet" *ngIf="TOS1 && TOS2 && TOS3 && selectedType && walletName.length >= 1">
+            <img src="../../../assets/icon/add_wallet_button.svg" alt="">
+        </div>
+    </div>
 </ion-content>

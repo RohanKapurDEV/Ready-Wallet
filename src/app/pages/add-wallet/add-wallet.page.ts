@@ -14,20 +14,9 @@ export class AddWalletPage implements OnInit {
   walletTypes: string[] = ['Bitcoin', 'Ethereum'];
   selectedType: string;
 
-  agreementForm = [
-    {
-      agreement: "I understand the fact that Ready Labs does not record, hold, or collect the private keys associated with my wallets",
-      val: false
-    },
-    {
-      agreement: "I have thoroughly read, and have agreed to the Terms & Conditions and Privacy Policy",
-      val: false
-    },
-    {
-      agreement: "I will make a backup of my private keys after the wallet is created through the options tab inside the wallet interface",
-      val: false
-    }
-  ]
+  TOS1: boolean = false;
+  TOS2: boolean = false;
+  TOS3: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -37,5 +26,4 @@ export class AddWalletPage implements OnInit {
   backToHomeScreen() {
     this.router.navigateByUrl('/landing')
   }
-
 }

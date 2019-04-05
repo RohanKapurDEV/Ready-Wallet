@@ -3,9 +3,8 @@ import { Router } from '@angular/router'
 import { NomicsService } from '../../services/nomics.service';
 import { StorageService } from '../../services/storage.service';
 import { Web3Service } from '../../services/web3.service';
+import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet/ngx';
 var numeral = require('numeral');
-
-import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet/ngx'
 
 @Component({
   selector: 'app-landing',
