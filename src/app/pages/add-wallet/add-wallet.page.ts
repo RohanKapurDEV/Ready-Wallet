@@ -9,13 +9,11 @@ import { Router } from '@angular/router'
 export class AddWalletPage implements OnInit {
 
   walletName: string = '';
-  iPhoneXDetected: boolean = false;
 
   walletTypes: string[] = ['Bitcoin', 'Ethereum'];
   selectedType: string;
 
   TOS1: boolean = false;
-  TOS2: boolean = false;
   TOS3: boolean = false;
 
   constructor(private router: Router) { }
