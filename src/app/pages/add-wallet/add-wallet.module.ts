@@ -9,8 +9,8 @@ import { AddWalletPage } from './add-wallet.page';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { MatRippleModule } from '@angular/material/core'
-import { MatRadioModule } from '@angular/material/radio'
+import { MatRippleModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
 
 const routes: Routes = [
   {

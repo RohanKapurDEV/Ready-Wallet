@@ -13,6 +13,11 @@
 @import '~animate.css/animate.min.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+body{
+    margin-top: constant(safe-area-inset-top);
+    margin-top: env(safe-area-inset-top);
+}
+
 /* San-francisco Pro Display Typeface class definitions */
 
 .SF-Pro-Display-Thin{

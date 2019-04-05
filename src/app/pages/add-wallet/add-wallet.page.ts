@@ -32,31 +32,10 @@ export class AddWalletPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.checkModernAppleVariants();
-    console.log('x')
   }
 
   backToHomeScreen() {
     this.router.navigateByUrl('/landing')
-  }
-
-  checkModernAppleVariants() {
-    let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-    let ratio = window.devicePixelRatio || 1;
-    let screen = {
-      width: window.screen.width * ratio,
-      height: window.screen.height * ratio
-    };
-
-    if (iOS && screen.width == 1125 && screen.height === 2436) {
-      this.iPhoneXDetected = true;
-      console.log('iPhone X detected');
-      document.getElementById('notch').style.height="1em";
-    } else {
-      this.iPhoneXDetected = false;
-      console.log('iPhone X not detected')
-    }
   }
 
 }
