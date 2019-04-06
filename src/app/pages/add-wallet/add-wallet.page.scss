@@ -4,30 +4,6 @@
     color: #263238;
 }
 
-.inputFormField > * {
-    width: 100%;
-}
-
-.radioGroup1 {
-  display: flex;
-  flex-direction: row; // Change to column for vertical radio buttons
-  margin: 10px 0;
-}
-
-.radioButtons {
-    margin: 10px;
-}
-
-.subtext {
-    font-size: .9em;
-    margin-left: .5em;
-}
-
-
-.inputWrapper {
-    height: 70%;
-}
-
 .add_wallet {
     display: flex;
     justify-content: center; /* align horizontal to the end, use 'center' for middle placement */
@@ -42,4 +18,100 @@
     transform: scale(.85);
     /* box-shadow: 0 3px 15px -2px; */
     outline: 0; /* Removes orange border around div during pressdown */
+}
+
+.formFieldWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.formFieldWrapper > * {
+    width: 100%;
+}
+
+.radioGroup1 {
+    display: flex;
+    flex-direction: row; // Change to column for vertical radio buttons
+}
+
+.radioButtons {
+    margin: 1em;
+}
+
+.radioWrapperWrap { // Div around the radioWrapper - keep for horizontally centering the divider inside this divider
+    text-align: center;
+}
+
+.radioWrapper { // Div inside the Wrap, keep for centering
+    display: inline-block;
+}
+
+.cardPreviewWrapperWrap {
+    text-align: center;
+}
+
+.cardPreviewWrapper {
+    display: inline-block;
+}
+
+#card {
+    height: 9em;
+    width: 15em;
+    min-height: 100%;
+    border-radius: 15.5px;
+    background-color: #263238;
+    transition: all .05s ease-in;
+    background-size: cover;
+}
+
+#card:active {
+    /* font-size: 1rem; */
+    transform: scale(.85);
+    /* box-shadow: 0 3px 15px -2px; */
+}   
+
+.slideInnerWrapper {
+    height: 100%;
+    width: 100%;
+    padding: 0.5em;
+}
+
+.wallet_second_column {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#wallet_arrow {
+    height: 1.2em;
+    transition: all .05s ease-in;
+}
+
+#wallet_arrow:active {
+    transform: scale(.85);
+}
+
+#card_text_title {
+    font-family: SF-Pro-Text-Semibold;
+    font-size: 0.85em;
+    color: white;
+    text-align: start;
+    margin: 0.75em;
+}
+
+#usdPrice {
+    font-family: SF-Pro-Text-Semibold;
+    font-size: 0.85em;
+    color: white;
+    text-align: start;
+    margin: 0.75em;
+}
+
+#ethPrice {
+    font-family: SF-Pro-Text-Semibold;
+    font-size: 0.8em;
+    color: white;
+    text-align: start;
+    margin: 0.75em;
 }

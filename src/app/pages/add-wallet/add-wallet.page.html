@@ -14,55 +14,105 @@
         </ion-grid>
     </div>
 
-    <div style="height: 2em;"></div>
+    <div style="height: 2.5em;"></div>
 
-    <div class="inputWrapper">
-        <div class="inputFormField">
-            <mat-form-field hintLabel="Max 25 characters">
-                <input matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
-                <mat-hint align="end">{{input.value?.length || 0}}/25</mat-hint>
-            </mat-form-field>
-        </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <div class="formFieldWrapper">
+                    <mat-form-field class="SF-Pro-Text-Light" hintLabel="Max 25 characters">
+                        <input class="SF-Pro-Text-Light" matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
+                        <mat-hint class="SF-Pro-Text-Light" align="end">{{input.value?.length || 0}}/25</mat-hint>
+                    </mat-form-field>
+                </div>
+            </ion-col>
+        </ion-row>
 
-        <div style="height: 2em;"></div>
+        <ion-row style="height: 2em;">
+            <ion-col size="12"></ion-col>
+        </ion-row>
 
-        <label id="radio-group-label">Select the wallet's currency:</label>
+        <ion-row>
+            <ion-col>
+                <div class="radioWrapperWrap">
+                    <label class="SF-Pro-Text-Light" id="radio-group-label">Select wallet type:</label>
+                    <div class="radioWrapper">    
+                        <mat-radio-group aria-labelledby="radio-group-label" class="radioGroup1" [(ngModel)]="selectedType">
+                                <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons SF-Pro-Text-Light">
+                                    {{ type }}
+                                </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row style="height: 1em;">
+            <ion-col size="12"></ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12">
+                <div class="cardPreviewWrapperWrap">
+                    <div class="cardPreviewWrapper">
+                        <div id="card" [ngStyle]="{'background-image': selectedType == 'Ethereum' ? 'url(../../../assets/images/cards/ethereum_card_background.svg)' : 'url(../../../assets/images/cards/bitcoin_card_background.svg)'}">
+                            <div class="slideInnerWrapper">
+                              <ion-grid style="height: 100%; padding: 0;">
+                                <ion-row style="height: 100%;">
+                                  <ion-col style="height: 100%; padding: 0;" size="11">
+                                  <div id="card_text_title" *ngIf="!walletName">
+                                    ...
+                                  </div>
+                                  <div id="card_text_title">
+                                    {{ walletName }}
+                                  </div>
+                                  <div style="height: 1.5em;"></div>
+                                  <div id="usdPrice">
+                                    $ 0.00
+                                  </div>
+                                  <div id="ethPrice">
+                                    &#926; 0
+                                  </div>
+                                  </ion-col>
+                                  <ion-col style="height: 100%; padding: 0;" size="1">
+                                    <div class="wallet_second_column">
+                                      <img id="wallet_arrow" src="../../../assets/icon/wallet_arrow_icon.svg">
+                                    </div>
+                                  </ion-col>
+                                </ion-row>
+                              </ion-grid>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+    
+</ion-content>
+
+
+<!-- 
+ EXTRA CODE FOR LATER
+
+ <mat-form-field hintLabel="Max 25 characters">
+     <input matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
+     <mat-hint align="end">{{input.value?.length || 0}}/25</mat-hint>
+ </mat-form-field>
+
+
+
+ <label id="radio-group-label">Select the wallet's currency:</label>
         <mat-radio-group aria-labelledby="radio-group-label" class="radioGroup1" [(ngModel)]="selectedType">
             <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons">
                 {{ type }}
             </mat-radio-button>
         </mat-radio-group>
 
-        <div style="height: 3em"></div>
 
-        <div class="checkboxWrapper">
-            <ion-grid style="padding: 0;">
-                <ion-row>
-                    <ion-col size="1">
-                    <ion-checkbox [(ngModel)]="TOS1"></ion-checkbox>
-                    </ion-col>
-                    <ion-col size="11">
-                    <div class="subtext">
-                        I understand that I must back up my private keys after creating the wallet
-                    </div>
-                    </ion-col>
-                </ion-row>
-            
-                <ion-row>
-                    <ion-col size="1">
-                    <ion-checkbox [(ngModel)]="TOS3"></ion-checkbox>
-                    </ion-col>
-                    <ion-col size="11">
-                    <div class="subtext">
-                        I have thoroughly read, and have agreed to the Terms & Conditions and Privacy Policy
-                    </div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </div>
-    </div>
 
-    <div class="addWalletWrapper">
+ <div class="addWalletWrapper">
         <div class="add_wallet" *ngIf="!TOS1 || !TOS3 || !selectedType || !walletName.length >= 1">
             <img src="../../../assets/icon/add-wallet-disabled.svg" alt="">
         </div>
@@ -71,4 +121,4 @@
             <img src="../../../assets/icon/add_wallet_button.svg" alt="">
         </div>
     </div>
-</ion-content>
+ -->

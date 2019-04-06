@@ -11,7 +11,7 @@ export class AddWalletPage implements OnInit {
   walletName: string = '';
 
   walletTypes: string[] = ['Bitcoin', 'Ethereum'];
-  selectedType: string;
+  selectedType: string = 'Bitcoin';
 
   TOS1: boolean = false;
   TOS3: boolean = false;
