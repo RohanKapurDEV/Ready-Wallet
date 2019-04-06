@@ -91,34 +91,3 @@
     </ion-grid>
     
 </ion-content>
-
-
-<!-- 
- EXTRA CODE FOR LATER
-
- <mat-form-field hintLabel="Max 25 characters">
-     <input matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
-     <mat-hint align="end">{{input.value?.length || 0}}/25</mat-hint>
- </mat-form-field>
-
-
-
- <label id="radio-group-label">Select the wallet's currency:</label>
-        <mat-radio-group aria-labelledby="radio-group-label" class="radioGroup1" [(ngModel)]="selectedType">
-            <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons">
-                {{ type }}
-            </mat-radio-button>
-        </mat-radio-group>
-
-
-
- <div class="addWalletWrapper">
-        <div class="add_wallet" *ngIf="!TOS1 || !TOS3 || !selectedType || !walletName.length >= 1">
-            <img src="../../../assets/icon/add-wallet-disabled.svg" alt="">
-        </div>
-
-        <div class="add_wallet" *ngIf="TOS1 && TOS3 && selectedType && walletName.length >= 1">
-            <img src="../../../assets/icon/add_wallet_button.svg" alt="">
-        </div>
-    </div>
- -->
