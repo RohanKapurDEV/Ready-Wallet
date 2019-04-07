@@ -97,17 +97,17 @@ export class LandingPage implements OnInit {
     this.pullBTCPriceFromNomics();
     this.pullETHPriceFromNomics();
     this.pullETHChartFromNomics();
-    this.setWallets();
-  }
-
-  ionViewWillEnter() {
-    this.setWallets();
-    this.detectAndroid();
   }
   
   ionViewDidLeave() { // Destroy wallets cache on component exit for successful re-read on reentry 
     this.wallets = [];
   }
+
+  ionViewWillEnter() { // Fetches wallets on page entry, deletes cache on leave to refetch on reentry
+    this.setWallets();
+    this.detectAndroid();
+  }
+  
 
   detectAndroid() {
     let ua = navigator.userAgent.toLowerCase()
@@ -140,7 +140,7 @@ export class LandingPage implements OnInit {
           case 3:
             break;
           case 4:
-            break;
+            this.router.navigateByUrl('/about-us');
         } 
       }
 
