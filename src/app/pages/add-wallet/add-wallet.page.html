@@ -101,7 +101,7 @@
                 <div class="middle_button" *ngIf="!walletName">
                     <img src="../../../assets/icon/add-wallet-disabled.svg" alt="">
                 </div>
-                <div class="middle_button" *ngIf="walletName">
+                <div class="middle_button" *ngIf="walletName" (click)="addWalletToStorage()">
                     <img src="../../../assets/icon/add_wallet_button.svg" alt="">
                 </div>
                 <div class="SF-Pro-Text-Regular agreementSubtext">

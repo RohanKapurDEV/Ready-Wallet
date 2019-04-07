@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
+import { Platform } from '@ionic/angular'
 import { NomicsService } from '../../services/nomics.service';
 import { StorageService } from '../../services/storage.service';
 import { Web3Service } from '../../services/web3.service';
@@ -89,7 +90,7 @@ export class LandingPage implements OnInit {
   }
 
   constructor(private nomics: NomicsService, private storage: StorageService, private web3: Web3Service, private actionSheet: ActionSheet,
-    private router: Router) { }
+    private router: Router, activatedRoute: ActivatedRoute, private platform: Platform) { }
 
   ngOnInit() {
     this.pullBTCChartFromNomics();
@@ -97,7 +98,15 @@ export class LandingPage implements OnInit {
     this.pullETHPriceFromNomics();
     this.pullETHChartFromNomics();
     this.setWallets();
+  }
+
+  ionViewWillEnter() {
+    this.setWallets();
     this.detectAndroid();
+  }
+  
+  ionViewDidLeave() { // Destroy wallets cache on component exit for successful re-read on reentry 
+    this.wallets = [];
   }
 
   detectAndroid() {
