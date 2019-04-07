@@ -83,6 +83,7 @@
       <ion-slides [options]="sliderOptions">
         <ion-slide id="card" *ngFor="let wallet of wallets"
         [ngStyle]="{'background-image': wallet.wallet_type == 'Ethereum' ? 'url(../../../assets/images/cards/ethereum_card_background.svg)' : 'url(../../../assets/images/cards/bitcoin_card_background.svg)'}">
+        
         <div class="slideInnerWrapper">
           <ion-grid style="height: 100%; padding: 0;">
             <ion-row style="height: 100%;">
