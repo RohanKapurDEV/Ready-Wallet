@@ -15,13 +15,15 @@
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
-  <g id="Group_259" data-name="Group 259" transform="translate(-63.09 -639)">
-    <g transform="matrix(1, 0, 0, 1, 63.09, 639)" filter="url(#Rectangle_227)">
-      <rect id="Rectangle_227-2" data-name="Rectangle 227" width="219" height="54" rx="27" transform="translate(15 12)" fill="#396afc"/>
+  <g id="Group_334" data-name="Group 334" transform="translate(-63.09 -664)">
+    <g id="Group_325" data-name="Group 325">
+      <g transform="matrix(1, 0, 0, 1, 63.09, 664)" filter="url(#Rectangle_227)">
+        <rect id="Rectangle_227-2" data-name="Rectangle 227" width="219" height="54" rx="27" transform="translate(15 12)" fill="#396afc"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 63.09, 664)" filter="url(#iconmonstr-plus-2)">
+        <path id="iconmonstr-plus-2-2" data-name="iconmonstr-plus-2" d="M27.032,11.263H15.769V0H11.263V11.263H0v4.505H11.263V27.032h4.505V15.769H27.032Z" transform="translate(47.04 25.6)" fill="#fff"/>
+      </g>
+      <text id="Add_a_new_wallet" data-name="Add a new wallet" transform="translate(209 708)" fill="#fff" font-size="15" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="-56.869" y="0">Add a new wallet</tspan></text>
     </g>
-    <g transform="matrix(1, 0, 0, 1, 63.09, 639)" filter="url(#iconmonstr-plus-2)">
-      <path id="iconmonstr-plus-2-2" data-name="iconmonstr-plus-2" d="M27.032,11.263H15.769V0H11.263V11.263H0v4.505H11.263V27.032h4.505V15.769H27.032Z" transform="translate(47.04 25.6)" fill="#fff"/>
-    </g>
-    <text id="Add_a_new_wallet" data-name="Add a new wallet" transform="translate(209 683)" fill="#fff" font-size="15" font-family="SFProDisplay-Semibold, SF Pro Display" font-weight="600"><tspan x="-55.649" y="0">Add a new wallet</tspan></text>
   </g>
 </svg>
