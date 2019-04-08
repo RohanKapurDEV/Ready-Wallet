@@ -149,6 +149,10 @@ export class LandingPage implements OnInit {
       }  
   }
 
+  goToCreateWalletPage() {
+    this.router.navigateByUrl('/add-wallet');
+  }
+
   setWallets() {
     this.storage.read().then((expectedArray) => {
       if (expectedArray === null) {

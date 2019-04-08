@@ -135,3 +135,28 @@ ion-content {
     text-align: start;
     margin: 0.75em;
 }
+
+.lastCard {
+    height: 9em;
+    width: 15em;
+    min-height: 100%;
+    border-radius: 15.5px;
+    background-color: #396AFC;
+    transition: all .05s ease-in;
+    background-size: cover;
+}
+
+.lastCard:active {
+    /* font-size: 1rem; */
+    transform: scale(.85);
+    /* box-shadow: 0 3px 15px -2px; */
+}
+
+.addWalletCard {
+    text-align: center;
+}
+
+.innerAddWalletCard {
+    display: inline-block;
+    color: white;
+}
