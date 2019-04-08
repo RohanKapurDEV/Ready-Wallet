@@ -1,4 +1,4 @@
-// Ionic Variables and Theming. For more info, please see:
+k// Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
@@ -150,4 +150,31 @@
 @font-face {
   font-family: 'SF-Pro-Text-Heavy';
   src: url(../assets/fonts/SF-Pro-Text/SFProText-Heavy.ttf);
+}
+
+/** Roboto Typeface imports (../assets/fonts/Roboto) **/
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url(../assets/fonts/Roboto/Roboto-Thin.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url(../assets/fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url(../assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url(../assets/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url(../assets/fonts/Roboto/Roboto-Bold.ttf);
 }

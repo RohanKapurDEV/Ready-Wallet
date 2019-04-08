@@ -8,7 +8,7 @@
                     <img src="../../../assets/icon/arrow_back.svg" alt="">
                 </ion-col>
                 <ion-col size="11">
-                    <div class="SF-Pro-Display-Semibold" id="title">&nbsp;&nbsp; Create a new wallet</div>
+                    <div class="Roboto-Medium" id="title">&nbsp;&nbsp; Create a new wallet</div>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -20,9 +20,9 @@
         <ion-row>
             <ion-col size="12">
                 <div class="formFieldWrapper">
-                    <mat-form-field class="SF-Pro-Text-Light" hintLabel="Max 25 characters">
-                        <input class="SF-Pro-Text-Light" matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
-                        <mat-hint class="SF-Pro-Text-Light" align="end">{{input.value?.length || 0}}/25</mat-hint>
+                    <mat-form-field class="Roboto-Light" hintLabel="Max 25 characters">
+                        <input class="Roboto-Light" matInput #input maxlength="25" placeholder="Enter wallet name" [(ngModel)]="walletName">
+                        <mat-hint class="Roboto-Light" align="end">{{input.value?.length || 0}}/25</mat-hint>
                     </mat-form-field>
                 </div>
             </ion-col>
@@ -35,10 +35,10 @@
         <ion-row>
             <ion-col>
                 <div class="radioWrapperWrap">
-                    <label class="SF-Pro-Text-Light" id="radio-group-label">Select wallet type:</label>
+                    <label class="Roboto-Light" id="radio-group-label">Select wallet type:</label>
                     <div class="radioWrapper">    
                         <mat-radio-group aria-labelledby="radio-group-label" class="radioGroup1" [(ngModel)]="selectedType">
-                                <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons SF-Pro-Text-Light">
+                                <mat-radio-button *ngFor="let type of walletTypes" [value]="type" class="radioButtons Roboto-Light">
                                     {{ type }}
                                 </mat-radio-button>
                         </mat-radio-group>
@@ -104,7 +104,7 @@
                 <div class="middle_button" *ngIf="walletName" (click)="addWalletToStorage()">
                     <img src="../../../assets/icon/add_wallet_button.svg" alt="">
                 </div>
-                <div class="SF-Pro-Text-Regular agreementSubtext">
+                <div class="Roboto-Regular agreementSubtext">
                     By clicking the button above, you agree to the Terms and Conditions and Privacy Policy
                 </div>
             </ion-col>
