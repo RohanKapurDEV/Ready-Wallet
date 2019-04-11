@@ -18,6 +18,7 @@ export class LandingPage implements OnInit {
   
   wallets: any = [];
   walletsArrayLoaded: boolean = false;
+  showAddWallet: boolean = false;
 
   btcPrice: string;
   ethPrice: string;
@@ -103,6 +104,7 @@ export class LandingPage implements OnInit {
   ionViewDidLeave() { // Destroy wallets cache on component exit for successful re-read on reentry 
     this.wallets = [];
     this.walletsArrayLoaded = false;
+    this.showAddWallet = false;
   }
 
   ionViewWillEnter() { // Fetches wallets on page entry, deletes cache on leave to refetch on reentry
@@ -159,6 +161,7 @@ export class LandingPage implements OnInit {
     this.storage.read().then((expectedArray) => {
       if (expectedArray === null) {
         console.log('No wallets exist');
+        this.showAddWallet = true;
         this.walletsArrayLoaded = true;
       } else {
         let newArray = [];

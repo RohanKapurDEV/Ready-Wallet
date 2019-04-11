@@ -73,14 +73,15 @@
       </ion-row>
     </ion-grid>
 
+    
+    <div class="middle_button"  *ngIf="walletsArrayLoaded && showAddWallet && wallets.length === 0" [routerLink]="'/add-wallet'">
+      <img class="animated bounceInUp" src="../../../assets/icon/create_wallet.svg" alt="">
+    </div>
+    
     <div id="loaderCard" *ngIf="!walletsArrayLoaded && wallets.length === 0">
       <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
     </div>
 
-    <div class="middle_button"  *ngIf="walletsArrayLoaded && wallets.length === 0" [routerLink]="'/add-wallet'">
-      <img class="animated bounceInUp" src="../../../assets/icon/create_wallet.svg" alt="">
-    </div>
-    
     <div style="height: 1em;"></div>
 
     <div class="wallet_swiper animated fadeIn" *ngIf="walletsArrayLoaded && wallets.length >= 1">
