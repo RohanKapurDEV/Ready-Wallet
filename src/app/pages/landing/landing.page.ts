@@ -102,6 +102,7 @@ export class LandingPage implements OnInit {
   
   ionViewDidLeave() { // Destroy wallets cache on component exit for successful re-read on reentry 
     this.wallets = [];
+    this.walletsArrayLoaded = false;
   }
 
   ionViewWillEnter() { // Fetches wallets on page entry, deletes cache on leave to refetch on reentry
@@ -160,7 +161,20 @@ export class LandingPage implements OnInit {
         console.log('No wallets exist');
         this.walletsArrayLoaded = true;
       } else {
-        this.wallets = expectedArray;
+        let newArray = [];
+
+        for (const wallet of expectedArray) {
+          if (wallet.wallet_type === 'Ethereum') {
+            this.web3.checkEtherBalance(wallet.wallet_address).then((balance) => {
+              wallet.wallet_balance = balance;
+              newArray.push(wallet);
+            })
+          } else if (wallet.wallet_type === 'Bitcoin') {
+            newArray.push(wallet);
+          }
+        };
+
+        this.wallets = newArray;
         this.walletsArrayLoaded = true;
       };
     })

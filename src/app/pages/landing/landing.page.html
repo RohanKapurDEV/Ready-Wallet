@@ -73,7 +73,7 @@
       </ion-row>
     </ion-grid>
 
-    <div id="loaderCard"  *ngIf="!walletsArrayLoaded">
+    <div id="loaderCard" *ngIf="!walletsArrayLoaded && wallets.length === 0">
       <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
     </div>
 
@@ -94,6 +94,7 @@
               <ion-col style="height: 100%; padding: 0;" size="11">
               <div id="card_text_title">
                 {{ wallet.wallet_name }}
+                {{ wallet.wallet_balance }}
               </div>
               </ion-col>
               <ion-col style="height: 100%; padding: 0;" size="1">
