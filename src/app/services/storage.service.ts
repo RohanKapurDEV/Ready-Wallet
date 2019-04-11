@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Web3Service } from '../services/web3.service';
 
 export interface GeneratedWallet {
   wallet_id: string,
@@ -19,7 +20,7 @@ const WALLETS_KEY: string = 'WALLETS_KEY';
 })
 export class StorageService {
 
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage, private web3: Web3Service) { }
 
   // This function creates an array for the wallet store if no array exists, or adds wallet to existing array
   create(wallet: GeneratedWallet): Promise<any> {
@@ -36,6 +37,29 @@ export class StorageService {
   // This function fetches all wallets stored
   read(): Promise<any> {
     return this.storage.get(WALLETS_KEY);
+  }
+
+  readWithBalances(): Promise<any> {
+    return this.storage.get(WALLETS_KEY).then(async (expectedArray: GeneratedWallet[]) => {
+      if (!expectedArray || expectedArray.length === 0) {
+        return null;
+      }
+
+      let updatedArray: GeneratedWallet[] = [];
+
+      for (let x of expectedArray) {
+        if (x.wallet_type === 'Ethereum') {
+          const balance = await this.web3.checkEtherBalance(x.wallet_address);
+          x.wallet_balance = balance;
+          console.log(x.wallet_address)
+          updatedArray.push(x);
+        } else if (x.wallet_type === 'Bitcoin') {
+          x.wallet_balance = '$0.00'
+        }
+      }
+
+      return updatedArray;
+    })
   }
 
   // This function updates properties of existing wallets in the store

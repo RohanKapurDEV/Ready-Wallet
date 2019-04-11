@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import Web3 from 'web3';
-import { StorageService, GeneratedWallet } from './storage.service'
+import { GeneratedWallet } from './storage.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class Web3Service {
 
-  constructor(private storageRef: StorageService) { }
+  constructor() { }
 
   createWallet(wallet_name: string) {
     let web3 = new Web3("https://ropsten.infura.io/v3/fcea8205fda14a14bcb9a2dbb27cc46f");

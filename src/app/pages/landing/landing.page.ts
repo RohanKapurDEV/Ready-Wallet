@@ -158,7 +158,7 @@ export class LandingPage implements OnInit {
   }
 
   setWallets() {
-    this.storage.read().then((expectedArray) => {
+    this.storage.readWithBalances().then((expectedArray) => {
       if (expectedArray === null) {
         console.log('No wallets exist');
         this.showAddWallet = true;
