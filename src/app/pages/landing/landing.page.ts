@@ -92,7 +92,7 @@ export class LandingPage implements OnInit {
   }
 
   constructor(private nomics: NomicsService, private storage: StorageService, private web3: Web3Service, private actionSheet: ActionSheet,
-    private router: Router, activatedRoute: ActivatedRoute, private platform: Platform) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.pullBTCChartFromNomics();
@@ -164,20 +164,7 @@ export class LandingPage implements OnInit {
         this.showAddWallet = true;
         this.walletsArrayLoaded = true;
       } else {
-        let newArray = [];
-
-        for (const wallet of expectedArray) {
-          if (wallet.wallet_type === 'Ethereum') {
-            this.web3.checkEtherBalance(wallet.wallet_address).then((balance) => {
-              wallet.wallet_balance = balance;
-              newArray.push(wallet);
-            })
-          } else if (wallet.wallet_type === 'Bitcoin') {
-            newArray.push(wallet);
-          }
-        };
-
-        this.wallets = newArray;
+        this.wallets = expectedArray;
         this.walletsArrayLoaded = true;
       };
     })

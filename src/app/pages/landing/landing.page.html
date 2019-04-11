@@ -72,14 +72,9 @@
         <ion-col id="more_icon" size=2 (click)="showActionSheet()" matRipple> <img src="../../../assets/icon/more.svg" alt=""> </ion-col>
       </ion-row>
     </ion-grid>
-
     
     <div class="middle_button"  *ngIf="walletsArrayLoaded && showAddWallet && wallets.length === 0" [routerLink]="'/add-wallet'">
       <img class="animated bounceInUp" src="../../../assets/icon/create_wallet.svg" alt="">
-    </div>
-    
-    <div id="loaderCard" *ngIf="!walletsArrayLoaded && wallets.length === 0">
-      <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
     </div>
 
     <div style="height: 1em;"></div>
