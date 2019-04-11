@@ -17,6 +17,7 @@ export class LandingPage implements OnInit {
   androidDevice: boolean = false;
   
   wallets: any = [];
+  walletsArrayLoaded: boolean = false;
 
   btcPrice: string;
   ethPrice: string;
@@ -120,7 +121,7 @@ export class LandingPage implements OnInit {
 
   async showActionSheet() {
     try
-      {  let actionSheetLabels = ['Create a new wallet', 'Import a wallet', 'Terms of Service', 'About Ready Wallet'];
+      {  let actionSheetLabels = ['Create a new wallet', 'Import a wallet', 'Settings', 'About Ready Wallet'];
 
         const options: ActionSheetOptions = {
           title: 'Ready Wallet Options',
@@ -156,9 +157,11 @@ export class LandingPage implements OnInit {
   setWallets() {
     this.storage.read().then((expectedArray) => {
       if (expectedArray === null) {
-        console.log('No wallets exist')
+        console.log('No wallets exist');
+        this.walletsArrayLoaded = true;
       } else {
         this.wallets = expectedArray;
+        this.walletsArrayLoaded = true;
       };
     })
   }

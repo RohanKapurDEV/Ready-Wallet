@@ -1,6 +1,6 @@
 
 ion-content {
-    --overflow: hidden;
+    // --overflow: hidden;
 }
     
 .sparkline_wrapper {
@@ -98,6 +98,16 @@ ion-content {
     background-color: #263238;
     transition: all .05s ease-in;
     background-size: cover;
+}
+
+#loaderCard {
+    height: 10em;
+    width: 17em;
+    border-radius: 15.5px;
+    display: flex;
+    justify-content: center; /* align horizontal to the end, use 'center' for middle placement */
+    align-items: center;
+    margin-left: 30px;
 }
 
 #card:active {
