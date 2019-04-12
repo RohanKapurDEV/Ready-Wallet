@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Web3Service } from '../services/web3.service';
+import { NomicsService } from '../services/nomics.service'
+var numeral = require('numeral');
 
 export interface GeneratedWallet {
   wallet_id: string,
@@ -10,7 +12,8 @@ export interface GeneratedWallet {
   wallet_type: string,
   wallet_symbol: string,
   wallet_creation_timestamp?: number,
-  wallet_balance?: string
+  wallet_balanceInNativeDenomination?: string
+  wallet_balanceInFiat?: string
 }
 
 const WALLETS_KEY: string = 'WALLETS_KEY';
@@ -20,7 +23,7 @@ const WALLETS_KEY: string = 'WALLETS_KEY';
 })
 export class StorageService {
 
-  constructor(private storage: Storage, private web3: Web3Service) { }
+  constructor(private storage: Storage, private web3: Web3Service, private nomics: NomicsService) { }
 
   // This function creates an array for the wallet store if no array exists, or adds wallet to existing array
   create(wallet: GeneratedWallet): Promise<any> {
@@ -46,15 +49,27 @@ export class StorageService {
       }
 
       let updatedArray: GeneratedWallet[] = [];
+      let mockPrice = '10000';
+      let ethPrice: string;
+      let btcPrice: string;
+
+      let ethPriceCall = await this.nomics.getPriceBySymbol('ETH').subscribe((result: any) => { ethPrice = result[0].price; })
+      let btcPriceCall = await this.nomics.getPriceBySymbol('BTC').subscribe((result: any) => { btcPrice = result[0].price; })
 
       for (let x of expectedArray) {
         if (x.wallet_type === 'Ethereum') {
-          const balance = await this.web3.checkEtherBalance(x.wallet_address);
-          x.wallet_balance = balance;
-          console.log(x.wallet_address)
+          let balance = await this.web3.checkEtherBalance(x.wallet_address); // Cache another var to convert from wei to eth 
+          let balanceInEtherDisplay = 'Ξ ' + this.web3.weiToEther(balance);
+          let balanceInEther = this.web3.weiToEther(balance);
+          let balanceInUsd = numeral(parseFloat(balanceInEther) * parseFloat(ethPrice)).format('$ 0,0.00')
+          x.wallet_balanceInNativeDenomination = balanceInEtherDisplay;
+          x.wallet_balanceInFiat = balanceInUsd;
+          console.log('USD Balance is ' + balanceInUsd);
           updatedArray.push(x);
         } else if (x.wallet_type === 'Bitcoin') {
-          x.wallet_balance = '$0.00'
+          x.wallet_balanceInFiat = numeral(mockPrice).format(`$ 0,0.00`);
+          x.wallet_balanceInNativeDenomination = '₿ 2.7';
+          updatedArray.push(x)
         }
       }
 

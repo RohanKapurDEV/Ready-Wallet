@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { GeneratedWallet } from './storage.service';
 import Web3 from 'web3';
-import { GeneratedWallet } from './storage.service'
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +42,11 @@ export class Web3Service {
     let balance = await web3.eth.getBalance(wallet_address);
     console.log(balance + ' in wei');
     return balance
+  }
+
+  weiToEther(amountInWei) {
+    let web3 = new Web3("https://ropsten.infura.io/v3/fcea8205fda14a14bcb9a2dbb27cc46f");
+    let balanceInEther = web3.utils.fromWei(amountInWei, 'ether');;
+    return balanceInEther;
   }
 }
