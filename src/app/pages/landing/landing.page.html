@@ -73,6 +73,7 @@
       </ion-row>
     </ion-grid>
 
+    <div style="height: 1em;" *ngIf="!walletsArrayLoaded && !showAddWallet"></div>
     <div id="loaderCard"  *ngIf="!walletsArrayLoaded && !showAddWallet">
       <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
     </div>
