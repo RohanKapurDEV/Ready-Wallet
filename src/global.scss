@@ -15,8 +15,7 @@
 @import './angular_theming.scss';
 
 /* Sets margin for iOS devices X and above */
-body{
-    margin-top: constant(safe-area-inset-top);
+.spacerDiv {
     margin-top: env(safe-area-inset-top);
 }
 

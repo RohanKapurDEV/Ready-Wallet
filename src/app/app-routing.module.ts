@@ -8,10 +8,6 @@ const routes: Routes = [
   { path: 'about-us', loadChildren: './pages/about-us/about-us.module#AboutUsPageModule' },
   { path: 'bitcoin', loadChildren: './pages/bitcoin/bitcoin.module#BitcoinPageModule' },
   { path: 'ethereum', loadChildren: './pages/ethereum/ethereum.module#EthereumPageModule' },
-  { path: 'ether-buy', loadChildren: './pages/ethereum/ether-buy/ether-buy.module#EtherBuyPageModule' },
-  { path: 'satoshi-wallet', loadChildren: './pages/bitcoin/satoshi-wallet/satoshi-wallet.module#SatoshiWalletPageModule' },
-  { path: 'satoshi-buy', loadChildren: './pages/bitcoin/satoshi-buy/satoshi-buy.module#SatoshiBuyPageModule' },
-  { path: 'satosh-settings', loadChildren: './pages/bitcoin/satosh-settings/satosh-settings.module#SatoshSettingsPageModule' },
 ];
 
 /**
@@ -20,7 +16,11 @@ const routes: Routes = [
  * 
   { path: 'ether-wallet', loadChildren: './pages/ethereum/ether-wallet/ether-wallet.module#EtherWalletPageModule' },
   { path: 'ether-trade', loadChildren: './pages/ethereum/ether-trade/ether-trade.module#EtherTradePageModule' },
-  { path: 'ether-settings', loadChildren: './pages/ethereum/ether-settings/ether-settings.module#EtherSettingsPageModule' }
+  { path: 'ether-settings', loadChildren: './pages/ethereum/ether-settings/ether-settings.module#EtherSettingsPageModule' },
+  { path: 'ether-buy', loadChildren: './pages/ethereum/ether-buy/ether-buy.module#EtherBuyPageModule' },
+  { path: 'satoshi-wallet', loadChildren: './pages/bitcoin/satoshi-wallet/satoshi-wallet.module#SatoshiWalletPageModule' },
+  { path: 'satoshi-buy', loadChildren: './pages/bitcoin/satoshi-buy/satoshi-buy.module#SatoshiBuyPageModule' },
+  { path: 'satosh-settings', loadChildren: './pages/bitcoin/satosh-settings/satosh-settings.module#SatoshSettingsPageModule' },
  */
 
 @NgModule({

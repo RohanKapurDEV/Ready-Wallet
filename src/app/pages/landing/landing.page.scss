@@ -1,8 +1,14 @@
 
+
 ion-content {
     --overflow: hidden;
+    margin-top: env(safe-area-inset-top);
 }
-    
+
+html {
+    margin-top: env(safe-area-inset-top);
+}
+
 .sparkline_wrapper {
     height: 55%;
     width: 100%;;
