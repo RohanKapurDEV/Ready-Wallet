@@ -17,6 +17,7 @@ export interface GeneratedWallet {
 }
 
 const WALLETS_KEY: string = 'WALLETS_KEY';
+const CURRENT_WALLET_ADDRESS: string = '';
 
 @Injectable({
   providedIn: 'root'
@@ -115,5 +116,10 @@ export class StorageService {
 
       return this.storage.set(WALLETS_KEY, updatedArray);
     })
+  }
+
+  // This function sets the globally available wallet address for in-wallet address resolution on all wallet pages
+  setCurrentAddress(address: string) {
+    return this.storage.set(CURRENT_WALLET_ADDRESS, address)
   }
 }

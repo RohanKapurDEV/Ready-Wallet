@@ -17,7 +17,7 @@ export class Web3Service {
     wallet.wallet_id = genWallet.address;
     wallet.wallet_address = genWallet.address;
     wallet.wallet_route = 'ethereum';
-    wallet.wallet_type = 'Ethereum'
+    wallet.wallet_type = 'Ethereum';
     wallet.wallet_symbol = 'ETH';
     wallet.wallet_creation_timestamp = new Date().getTime() // Saved in UNIX Epoch format
     return wallet
@@ -30,8 +30,8 @@ export class Web3Service {
     wallet.wallet_name = wallet_name;
     wallet.wallet_id = genWallet.address;
     wallet.wallet_address = genWallet.address;
-    wallet.wallet_route = 'ethereum';
-    wallet.wallet_type = 'Bitcoin'
+    wallet.wallet_route = 'bitcoin';
+    wallet.wallet_type = 'Bitcoin';
     wallet.wallet_symbol = 'ETH';
     wallet.wallet_creation_timestamp = new Date().getTime() // Saved in UNIX Epoch format
     return wallet

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Platform } from '@ionic/angular'
 import { NomicsService } from '../../services/nomics.service';
 import { StorageService } from '../../services/storage.service';
 import { Web3Service } from '../../services/web3.service';
@@ -110,6 +109,20 @@ export class LandingPage implements OnInit {
   ionViewWillEnter() { // Fetches wallets on page entry, deletes cache on leave to refetch on reentry
     this.setWallets();
     this.detectAndroid();
+  }
+
+  logTemp(nav) {
+    console.log(nav);
+  }
+
+  setCurrentWalletAddress(wallet) {
+    let addressFromObject = wallet.wallet_address;
+    let urlRoute = wallet.wallet_route;
+
+    this.storage.setCurrentAddress(addressFromObject).then(() => {
+      this.router.navigateByUrl('/' + urlRoute);
+      console.log('Done!')
+    })
   }
   
 
