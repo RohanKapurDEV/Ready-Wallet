@@ -122,4 +122,8 @@ export class StorageService {
   setCurrentAddress(address: string) {
     return this.storage.set(CURRENT_WALLET_ADDRESS, address)
   }
+
+  returnCurrentAddress() {
+    return this.storage.get(CURRENT_WALLET_ADDRESS);
+  }
 }

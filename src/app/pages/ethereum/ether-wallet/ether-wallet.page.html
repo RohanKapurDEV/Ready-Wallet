@@ -1,9 +1,18 @@
-<ion-header>
-    <ion-toolbar>
-      <ion-title>etherTrade</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
 
 <ion-content padding>
+    <div>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="1" (click)="backToHomeScreen()" matRipple>
+                    <img src="../../../assets/icon/arrow_back.svg" alt="">
+                </ion-col>
+                <ion-col size="11">
+                    <div class="Roboto-Medium" id="title">&nbsp;&nbsp; {{currentWalletObject.wallet_name}}</div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 
+    {{currentWalletObject.wallet_address}}
 </ion-content>

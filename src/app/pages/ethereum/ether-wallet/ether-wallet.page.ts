@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService, GeneratedWallet } from '../../../services/storage.service'
 
 @Component({
   selector: 'app-ether-wallet',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EtherWalletPage implements OnInit {
 
-  constructor() { }
+  currentWalletObject: GeneratedWallet;
+
+  constructor(private storage: StorageService) { }
 
   ngOnInit() {
   }
+  
+  ionViewWillEnter() {
+    this.setCurrentWalletObject();
+  }
+
+  setCurrentWalletObject() {
+    this.storage.returnCurrentAddress().then((response: string) => {
+      this.storage.read().then((expectedArray: GeneratedWallet[]) => {
+        expectedArray.forEach((walletObj: any) => {
+          if (walletObj.wallet_address === response) {
+            this.currentWalletObject = walletObj;
+          }
+        });
+      })
+    }).then(() => { // Initiate callback hell here
+
+    })
+  }
+
 
 }

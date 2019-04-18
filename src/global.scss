@@ -14,7 +14,7 @@
 // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import './angular_theming.scss';
 
-/* Sets margin for iOS devices X and above */
+/* Sets margin for iOS devices X and above when div with spacerDiv class is added to any page */
 .spacerDiv {
     margin-top: env(safe-area-inset-top);
 }
