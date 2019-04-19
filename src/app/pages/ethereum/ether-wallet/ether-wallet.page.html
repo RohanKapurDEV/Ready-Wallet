@@ -8,11 +8,20 @@
                     <img src="../../../assets/icon/arrow_back.svg" alt="">
                 </ion-col>
                 <ion-col size="11">
-                    <div class="Roboto-Medium" id="title">&nbsp;&nbsp; {{currentWalletObject.wallet_name}}</div>
+                    <div *ngIf="currentWalletObject" class="Roboto-Medium" id="title">&nbsp;&nbsp; {{currentWalletObject.wallet_name}}</div>
                 </ion-col>
             </ion-row>
         </ion-grid>
     </div>
 
-    {{currentWalletObject.wallet_address}}
+    <div *ngIf="currentWalletObject">
+        {{currentWalletObject.wallet_address}}
+    </div>
+
+    <div>
+        {{ethereumObject.etherPrice}}
+    </div>
+    <div>
+        {{ethereumObject.walletBalance}}
+    </div>
 </ion-content>
