@@ -18,6 +18,9 @@ export class EtherWalletPage implements OnInit {
 
   currentWalletObject: GeneratedWallet = <GeneratedWallet>{};
   ethereumObject: etherObject = {}; // An object that contains the price per ethereum and the Ether balance of the current address
+  
+  etherDisplayPrice: string;
+  usdDisplayPrice: any;
 
   constructor(private storage: StorageService, private nomics: NomicsService, private web3: Web3Service) { }
 
@@ -38,11 +41,14 @@ export class EtherWalletPage implements OnInit {
         });
       })
     }).then(() => {
-      this.nomics.getPriceBySymbol('ETH').subscribe((result) => { this.ethereumObject.etherPrice = result[0].price })
+      this.nomics.getPriceBySymbol('ETH').subscribe((result) => { this.ethereumObject.etherPrice = result[0].price, this.etherDisplayPrice = numeral(result[0].price).format('$ 0,0.00') })
     }).then(() => {
       this.storage.returnCurrentAddress().then((result) => {
         this.web3.checkEtherBalance(result).then((etherBalance) => {
           this.ethereumObject.walletBalance = this.web3.weiToEther(etherBalance)
+        }).then(() => {
+          let walletUsdBalance = parseFloat(this.ethereumObject.walletBalance) * parseFloat(this.ethereumObject.etherPrice);
+          this.usdDisplayPrice = numeral(walletUsdBalance).format('$ 0,0.00');
         })
       })
     })

@@ -13,15 +13,28 @@
             </ion-row>
         </ion-grid>
     </div>
+    
+    <div style="height: 1em;"></div>
 
-    <div *ngIf="currentWalletObject">
-        {{currentWalletObject.wallet_address}}
-    </div>
-
-    <div>
-        {{ethereumObject.etherPrice}}
-    </div>
-    <div>
-        {{ethereumObject.walletBalance}}
+    <div *ngIf="ethereumObject && etherDisplayPrice && usdDisplayPrice">
+        <ion-item button lines="none">
+            <ion-avatar slot="start">
+              <img src="../../../../assets/icon/eth.svg">
+            </ion-avatar>
+            <ion-label text-wrap>
+              <ion-text>
+                <h3>Ethereum</h3>
+              </ion-text>
+              <p>{{etherDisplayPrice}}</p>
+            </ion-label>
+            <ion-label text-wrap slot="end" style="text-align: right;">
+                <ion-text color="primary">
+                  <h3>{{usdDisplayPrice}}</h3>
+                </ion-text>
+                <ion-text color="primary">
+                  <p>You own {{ethereumObject.walletBalance}} ETH</p>
+                </ion-text>
+              </ion-label>
+        </ion-item>
     </div>
 </ion-content>
