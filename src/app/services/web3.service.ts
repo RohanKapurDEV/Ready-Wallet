@@ -49,4 +49,8 @@ export class Web3Service {
     let balanceInEther = web3.utils.fromWei(amountInWei, 'ether');;
     return balanceInEther;
   }
+
+  checkErc20Balances(currentAddress: string) {
+    
+  }
 }

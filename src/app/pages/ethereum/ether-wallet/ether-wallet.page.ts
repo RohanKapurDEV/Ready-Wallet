@@ -22,6 +22,12 @@ export class EtherWalletPage implements OnInit {
   etherDisplayPrice: string;
   usdDisplayPrice: any;
 
+  showWalletObject: boolean = false;
+
+  obj: any = {
+    img: '../../../../assets/icon/dai.svg'
+  }
+
   constructor(private storage: StorageService, private nomics: NomicsService, private web3: Web3Service) { }
 
   ngOnInit() {
@@ -31,6 +37,11 @@ export class EtherWalletPage implements OnInit {
     this.setCurrentWalletObject();
   }
 
+  ionViewDidLeave() {
+    this.showWalletObject = false;
+  }
+
+  // This function may be the literal definition of callback hell but it works faster than expected on modern devices so fuck it, fuck code optimization anyway
   setCurrentWalletObject() {
     this.storage.returnCurrentAddress().then((response: string) => {
       this.storage.read().then((expectedArray: GeneratedWallet[]) => {
@@ -49,8 +60,15 @@ export class EtherWalletPage implements OnInit {
         }).then(() => {
           let walletUsdBalance = parseFloat(this.ethereumObject.walletBalance) * parseFloat(this.ethereumObject.etherPrice);
           this.usdDisplayPrice = numeral(walletUsdBalance).format('$ 0,0.00');
+          this.showWalletObject = true;
         })
       })
+    })
+  }
+
+  retreiveErc20Balances() {
+    this.storage.returnCurrentAddress().then((response: string) => {
+      
     })
   }
 
