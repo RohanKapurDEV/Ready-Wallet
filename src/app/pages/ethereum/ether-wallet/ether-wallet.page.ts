@@ -23,10 +23,7 @@ export class EtherWalletPage implements OnInit {
   usdDisplayPrice: any;
 
   showWalletObject: boolean = false;
-
-  obj: any = {
-    img: '../../../../assets/icon/dai.svg'
-  }
+  showTokensForAddress: boolean = false;
 
   constructor(private storage: StorageService, private nomics: NomicsService, private web3: Web3Service) { }
 
@@ -35,6 +32,7 @@ export class EtherWalletPage implements OnInit {
   
   ionViewWillEnter() {
     this.setCurrentWalletObject();
+    this.web3.checkErc20Balances('0x85670518aC87D858B70329c55140Dc1678f5f37A')
   }
 
   ionViewDidLeave() {
@@ -67,8 +65,8 @@ export class EtherWalletPage implements OnInit {
   }
 
   retreiveErc20Balances() {
-    this.storage.returnCurrentAddress().then((response: string) => {
-      
+    this.storage.returnCurrentAddress().then((currentAddress: string) => {
+      this.web3.checkErc20Balances(currentAddress)
     })
   }
 

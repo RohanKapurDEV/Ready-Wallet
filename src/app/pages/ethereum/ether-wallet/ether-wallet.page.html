@@ -63,9 +63,9 @@
     </div>
 
 
-    <div style="margin: 1em;" class="Roboto-Bold" id="tokens_title">Tokens</div>
+    <div style="margin: 1em;" class="Roboto-Medium" id="tokens_title">Tokens</div>
 
-    <div>
+    <div *ngIf="!showTokensForAddress">
       <ion-list>
         <ion-item lines="none">
             <ion-avatar slot="start">
