@@ -62,8 +62,25 @@
         </ion-item>
     </div>
 
+    <div style="margin: 0em 1em 0em 1em;">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div id="centerAlignDiv">
+              <img src="../../../../assets/icon/send.svg" alt="">
+            </div>
+          </ion-col>
+          <ion-col>
+            <div id="centerAlignDiv">
+              <img src="../../../../assets/icon/receive.svg" alt="">
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
 
-    <div style="margin: 1em;" class="Roboto-Medium" id="tokens_title">Tokens</div>
+
+    <div style="margin: 1em 1em 0.5em 1em;" class="Roboto-Medium" id="tokens_title">Tokens</div>
 
     <div *ngIf="!showTokensForAddress">
       <ion-list>

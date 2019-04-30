@@ -8,3 +8,9 @@
     font-size: 1.4em;
     color: #263238;
 }
+
+#centerAlignDiv > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="153.867" height="37.939" viewBox="0 0 153.867 37.939">
+  <g id="Group_348" data-name="Group 348" transform="translate(-196.656 -163.029)">
+    <rect id="Rectangle_269" data-name="Rectangle 269" width="153.867" height="37.94" rx="18.97" transform="translate(196.656 163.029)" fill="#396afc"/>
+    <text id="Receive" transform="translate(287 186)" fill="#fff" font-size="14" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="-24.507" y="0">Receive</tspan></text>
+    <path id="_ionicons_svg_ios-arrow-down" d="M96.755,166.941l6.618-6.624a1.246,1.246,0,0,1,1.767,0,1.261,1.261,0,0,1,0,1.772l-7.5,7.5a1.248,1.248,0,0,1-1.725.036l-7.551-7.536a1.251,1.251,0,0,1,1.767-1.772Z" transform="translate(147.186 17.517)" fill="#fff"/>
+  </g>
+</svg>
