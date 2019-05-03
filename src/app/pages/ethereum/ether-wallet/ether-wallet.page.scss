@@ -14,3 +14,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#button {
+    transition: all .05s ease-in;
+}
+
+#button:active {
+    transform: scale(.85);
+}

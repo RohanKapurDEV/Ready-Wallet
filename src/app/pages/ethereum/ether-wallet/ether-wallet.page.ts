@@ -36,7 +36,7 @@ export class EtherWalletPage implements OnInit {
   }
 
   ionViewDidLeave() {
-    this.showWalletObject = false;
+    // this.showWalletObject = false;
   }
 
   // This function may be the literal definition of callback hell but it works faster than expected on modern devices so fuck it, fuck code optimization anyway
@@ -58,6 +58,7 @@ export class EtherWalletPage implements OnInit {
         }).then(() => {
           let walletUsdBalance = parseFloat(this.ethereumObject.walletBalance) * parseFloat(this.ethereumObject.etherPrice);
           this.usdDisplayPrice = numeral(walletUsdBalance).format('$ 0,0.00');
+        }).then(() => {
           this.showWalletObject = true;
         })
       })

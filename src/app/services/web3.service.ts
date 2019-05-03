@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { GeneratedWallet } from './storage.service';
 import Web3 from 'web3';
 import { AbiItem } from 'web3-utils';
+import { NomicsService } from './nomics.service';
+import { Subscription } from 'rxjs';
 
 export interface Token {
-  tokenName?: string,
   tokenSymbol?: string,  
-  tokenPrice?: string, // Display price using numeralJS formatted as string
+  tokenPrice?: Subscription, // Display price using numeralJS formatted as string
   tokenBalance?: string, // Token balance after accounting for contract decimal
+  tokenBalanceInWei?: string,
   contractAddress?: string
+  contractDecimal?: string
 }
 
 @Injectable({
@@ -28,7 +31,7 @@ export class Web3Service {
     "0xe55c607d58c53b2b06a8e38f67f4c0fcaeed2c31"
   ]
 
-  constructor() { }
+  constructor(private nomics: NomicsService) { }
 
   createWallet(wallet_name: string) {
     let web3 = new Web3("https://ropsten.infura.io/v3/fcea8205fda14a14bcb9a2dbb27cc46f");
@@ -76,6 +79,7 @@ export class Web3Service {
 
     let deltaContractAddress: string = '0x2Cf5934204AC2Ec71378e3C72E472bC9871baeE0' // Currently ropsten address
     let deltaContractABI: AbiItem[] = [{"constant":true,"inputs":[{"name":"exchange","type":"address"},{"name":"user","type":"address"},{"name":"tokens","type":"address[]"}],"name":"depositedBalances","outputs":[{"name":"balances","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"user","type":"address"},{"name":"tokens","type":"address[]"}],"name":"tokenBalances","outputs":[{"name":"balances","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"exchange","type":"address"},{"name":"selector","type":"bytes4"},{"name":"user","type":"address"},{"name":"tokens","type":"address[]"},{"name":"userFirst","type":"bool"}],"name":"depositedBalancesGeneric","outputs":[{"name":"balances","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"token","type":"address"},{"name":"amount","type":"uint256"}],"name":"withdrawToken","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"functionSignature","type":"string"}],"name":"getFunctionSelector","outputs":[{"name":"","type":"bytes4"}],"payable":false,"stateMutability":"pure","type":"function"},{"constant":true,"inputs":[{"name":"spenderContract","type":"address"},{"name":"user","type":"address"},{"name":"tokens","type":"address[]"}],"name":"tokenAllowances","outputs":[{"name":"allowances","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"admin","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"exchange","type":"address"},{"name":"selector","type":"bytes4"},{"name":"user","type":"address"}],"name":"depositedEtherGeneric","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
+    let erc20ContractABI: AbiItem[] = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"INITIAL_SUPPLY","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"burn","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_value","type":"uint256"}],"name":"burnFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_name","type":"string"},{"name":"_symbol","type":"string"},{"name":"_decimals","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_burner","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Burn","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}];
 
     let deltaContractInstance = new web3.eth.Contract(deltaContractABI, deltaContractAddress)
     // console.log(deltaContractInstance)
@@ -87,6 +91,35 @@ export class Web3Service {
     // console.log(balances.map(x => x.toString()))
     let balanceArray = balances.map(x => x.toString())
     console.log(balanceArray);
+
+    let firstArray = []
+
+    balanceArray.forEach((balance, index) => {
+      if (balance != 0) {
+        let balanceObj: Token = <Token>{};
+        balanceObj.tokenBalanceInWei = balance;
+        balanceObj.contractAddress = this.tokensArray[index];
+        firstArray.push(balanceObj);
+      }
+    });
     
+    firstArray.forEach(async (tokenObj: Token) => {
+      let tokenContractInstance = new web3.eth.Contract(erc20ContractABI, tokenObj.contractAddress);
+      let contractDecimals = await tokenContractInstance.methods.decimals().call(); //returns BigNumber, use toString() when accounting for token decimal
+      let contractSymbol = await tokenContractInstance.methods.symbol().call()
+      console.log(contractSymbol + ' | ' + contractDecimals);
+      tokenObj.contractDecimal = contractDecimals;
+      tokenObj.tokenSymbol = contractSymbol;
+
+      let tokenNomicsCall;
+      
+      let tokenPriceCall = await this.nomics.getPriceBySymbol(contractSymbol).subscribe((response) => {
+        tokenNomicsCall = response;
+      })
+      
+      tokenObj.tokenPrice = tokenNomicsCall;
+    });
+
+    console.log(firstArray)
   }
 }
