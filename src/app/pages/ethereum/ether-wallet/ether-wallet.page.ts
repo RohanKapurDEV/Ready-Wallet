@@ -21,9 +21,11 @@ export class EtherWalletPage implements OnInit {
   
   etherDisplayPrice: string;
   usdDisplayPrice: any;
-
+  
   showWalletObject: boolean = false;
   showTokensForAddress: boolean = false;
+
+  tokensArray = [];
 
   constructor(private storage: StorageService, private nomics: NomicsService, private web3: Web3Service) { }
 
@@ -32,11 +34,20 @@ export class EtherWalletPage implements OnInit {
   
   ionViewWillEnter() {
     this.setCurrentWalletObject();
-    this.web3.checkErc20Balances('0x85670518aC87D858B70329c55140Dc1678f5f37A')
+    this.web3.checkErc20Balances('0x85670518aC87D858B70329c55140Dc1678f5f37A').then((response) => {
+      console.log(response);
+      this.tokensArray = response;
+      this.showTokensForAddress = true;
+    });
   }
 
   ionViewDidLeave() {
     // this.showWalletObject = false;
+    this.showTokensForAddress = false;
+  }
+
+  loadOtherSymbol(event) {
+    event.target.src ='../../../../assets/icon/load.svg'
   }
 
   // This function may be the literal definition of callback hell but it works faster than expected on modern devices so fuck it, fuck code optimization anyway
@@ -62,12 +73,6 @@ export class EtherWalletPage implements OnInit {
           this.showWalletObject = true;
         })
       })
-    })
-  }
-
-  retreiveErc20Balances() {
-    this.storage.returnCurrentAddress().then((currentAddress: string) => {
-      this.web3.checkErc20Balances(currentAddress)
     })
   }
 
