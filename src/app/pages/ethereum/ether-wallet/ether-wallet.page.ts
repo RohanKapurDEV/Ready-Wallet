@@ -47,7 +47,7 @@ export class EtherWalletPage implements OnInit {
   }
 
   loadOtherSymbol(event) {
-    event.target.src ='../../../../assets/icon/load.svg'
+    event.target.src ='../../../../assets/icon/load.svg';
   }
 
   // This function may be the literal definition of callback hell but it works faster than expected on modern devices so fuck it, fuck code optimization anyway
