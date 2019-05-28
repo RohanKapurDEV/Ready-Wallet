@@ -12,22 +12,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { IonicStorageModule } from '@ionic/storage';
-import { ActionSheet } from '@ionic-native/action-sheet/ngx'
+import { ActionSheet } from '@ionic-native/action-sheet/ngx';
 
 import { ChartsModule } from 'ng2-charts';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatFormFieldModule, MatInputModule, MatRippleModule, MatRadioModule } from '@angular/material'
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { Clipboard } from '@ionic-native/clipboard/ngx'
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule, MatInputModule, MatRippleModule, MatRadioModule } from '@angular/material';  
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ChartsModule, IonicStorageModule.forRoot(),
-  BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatRadioModule],
+  BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatRadioModule, NgxQRCodeModule],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ActionSheet
+    ActionSheet,
+    BarcodeScanner,
+    Clipboard
   ],
   bootstrap: [AppComponent]
 })

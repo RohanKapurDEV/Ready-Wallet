@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { StorageService, GeneratedWallet } from '../../../services/storage.service';
 import { NomicsService } from '../../../services/nomics.service';
 import { Web3Service } from '../../../services/web3.service';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { Clipboard } from'@ionic-native/clipboard/ngx';
 var numeral = require('numeral');
 
 export interface etherObject {
@@ -27,7 +31,8 @@ export class EtherWalletPage implements OnInit {
 
   tokensArray = [];
 
-  constructor(private storage: StorageService, private nomics: NomicsService, private web3: Web3Service) { }
+  constructor(private storage: StorageService, private nomics: NomicsService, private web3: Web3Service, private modalController: ModalController,
+    private router: Router, private toastController: ToastController, private clipboard: Clipboard) { }
 
   ngOnInit() {
   }
@@ -43,14 +48,25 @@ export class EtherWalletPage implements OnInit {
 
   ionViewDidLeave() {
     // this.showWalletObject = false;
-    this.showTokensForAddress = false;
+    // this.showTokensForAddress = false;
   }
 
   loadOtherSymbol(event) {
     event.target.src ='../../../../assets/icon/load.svg';
   }
 
-  // This function may be the literal definition of callback hell but it works faster than expected on modern devices so fuck it, fuck code optimization anyway
+  goToReceive() {
+    this.router.navigateByUrl('ethereum/etherWallet/receive')
+  }
+  
+  goToSend() {
+    this.router.navigateByUrl('ethereum/etherWallet/send')
+  }
+  
+  goToHome() {
+    this.router.navigateByUrl('')
+  }
+
   setCurrentWalletObject() {
     this.storage.returnCurrentAddress().then((response: string) => {
       this.storage.read().then((expectedArray: GeneratedWallet[]) => {
@@ -76,5 +92,20 @@ export class EtherWalletPage implements OnInit {
     })
   }
 
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Address copied',
+      duration: 1000,
+      showCloseButton: true,
+    });
+    toast.present(); 
+  }
 
+  copyAddressToClipboard() {
+    this.storage.returnCurrentAddress().then((response: string) => {
+      this.clipboard.copy(response);
+    }).then(async () => {
+      await this.presentToast();
+    })
+  }
 }

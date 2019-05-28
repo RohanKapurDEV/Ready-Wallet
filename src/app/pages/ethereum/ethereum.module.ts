@@ -18,6 +18,14 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: './ether-wallet/ether-wallet.module#EtherWalletPageModule'
+          },
+          {
+            path: 'receive',
+            loadChildren: './receive-ether/receive-ether.module#ReceiveEtherPageModule'
+          },
+          {
+            path: 'send',
+            loadChildren: './send-ether/send-ether.module#SendEtherPageModule'
           }
         ]
       },

@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'about-us', loadChildren: './pages/about-us/about-us.module#AboutUsPageModule' },
   { path: 'bitcoin', loadChildren: './pages/bitcoin/bitcoin.module#BitcoinPageModule' },
   { path: 'ethereum', loadChildren: './pages/ethereum/ethereum.module#EthereumPageModule' },
+  { path: 'receive-ether', loadChildren: './pages/ethereum/receive-ether/receive-ether.module#ReceiveEtherPageModule' },
+  { path: 'send-ether', loadChildren: './pages/ethereum/send-ether/send-ether.module#SendEtherPageModule' },
 ];
 
 /**

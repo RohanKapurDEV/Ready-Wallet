@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ethereum/etherWallet" (click)="goToEtherWallet()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Receive ETH or Tokens </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div style="height: 2.5em;"></div>
+
+  <div class="Roboto-Medium" style="text-align: center; color: #263238; font-size: 1.5em;">
+    Receive funds by sharing this QR Code:
+  </div>
+
+  <ion-card *ngIf="address" button style="border-radius: 7%;" (click)="copyAddressToClipboard()">
+      <ngx-qrcode [qrc-value]="address"></ngx-qrcode>
+  </ion-card>
+
+  <div class="Roboto-Medium" style="text-align: center; color: #263238;">
+      Click QR Code to copy address
+    </div>
+</ion-content>
