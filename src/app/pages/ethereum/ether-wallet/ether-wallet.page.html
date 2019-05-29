@@ -1,5 +1,5 @@
 
-<ion-content>
+<ion-content fullscreen="true">
     <div class="spacerDiv"></div>
     <div style="margin: 1em;">
         <ion-grid>
@@ -19,6 +19,8 @@
           </ion-row>
         </ion-grid>
     </div>
+
+    <div style="margin: 1em 1em 0.5em 1em;" class="Roboto-Medium" id="tokens_title">Balances</div>
     
     <!-- Loader div until the ETH Data loads -->
     <div *ngIf="!showWalletObject">
@@ -66,26 +68,6 @@
               </ion-label>
         </ion-item>
     </div>
-
-    <div style="margin: 0 0 0 0;">
-      <ion-grid>
-        <ion-row>
-          <ion-col style="padding: 0.5em 0 0 0;">
-            <div id="centerAlignDiv" (click)="goToSend()">
-              <img id="button" src="../../../../assets/icon/send.svg" alt="">
-            </div>
-          </ion-col>
-          <ion-col style="padding: 0.5em 0 0 0;">
-            <div id="centerAlignDiv" (click)="goToReceive()">
-              <img id="button" src="../../../../assets/icon/receive.svg" alt="">
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-
-
-    <div style="margin: 1em 1em 0.5em 1em;" class="Roboto-Medium" id="tokens_title">Tokens</div>
 
     <div *ngIf="!showTokensForAddress">
       <ion-list>
@@ -155,8 +137,8 @@
       </ion-list>
     </div>
 
-    <div class="animated fadeIn" *ngIf="showTokensForAddress">
-      <ion-list>
+    <div *ngIf="showTokensForAddress" class="animated fadeIn">
+      <ion-list style="padding-top: none !important;">
         <ion-item *ngFor="let token of tokensArray" button lines="none">
             <ion-avatar slot="start">
                 <ion-img [src]="token.tokenLogo" (ionError)="loadOtherSymbol($event)"></ion-img>
@@ -181,3 +163,22 @@
 
     
 </ion-content>
+
+<ion-footer translucent="true" no-border style="margin-bottom: 1em;">
+    <div style="margin: 0 0 0 0;">
+        <ion-grid>
+          <ion-row>
+            <ion-col style="padding: 0.5em 0 0 0;">
+              <div id="centerAlignDiv" (click)="goToSend()">
+                <img id="button" src="../../../../assets/icon/send.svg" alt="">
+              </div>
+            </ion-col>
+            <ion-col style="padding: 0.5em 0 0 0;">
+              <div id="centerAlignDiv" (click)="goToReceive()">
+                <img id="button" src="../../../../assets/icon/receive.svg" alt="">
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+</ion-footer>

@@ -46,11 +46,6 @@ export class EtherWalletPage implements OnInit {
     });
   }
 
-  ionViewDidLeave() {
-    // this.showWalletObject = false;
-    // this.showTokensForAddress = false;
-  }
-
   loadOtherSymbol(event) {
     event.target.src ='../../../../assets/icon/load.svg';
   }
@@ -77,7 +72,7 @@ export class EtherWalletPage implements OnInit {
         });
       })
     }).then(() => {
-      this.nomics.getPriceBySymbol('ETH').subscribe((result) => { this.ethereumObject.etherPrice = result[0].price, this.etherDisplayPrice = numeral(result[0].price).format('$ 0,0.00') })
+      this.nomics.getPriceBySymbol('ETH').subscribe((result) => { this.ethereumObject.etherPrice = result[0].price; this.etherDisplayPrice = numeral(result[0].price).format('$ 0,0.00'); })
     }).then(() => {
       this.storage.returnCurrentAddress().then((result) => {
         this.web3.checkEtherBalance(result).then((etherBalance) => {

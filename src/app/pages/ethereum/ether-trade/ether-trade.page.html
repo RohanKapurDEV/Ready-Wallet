@@ -1,9 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>etherTrade</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="spacerDiv"></div>
+  <div style="margin: 1em;">
+      <ion-grid>
+        <ion-row>
 
-<ion-content padding>
+            <ion-col size="10" style="padding: 0 0 0 0;" matRipple (click)="copyAddressToClipboard()">
+                <div *ngIf="currentWalletObject" class="Roboto-Medium" id="title">{{currentWalletObject.wallet_name}}</div>
+                <div *ngIf="currentWalletObject" class="Roboto-Medium" id="title-address">{{currentWalletObject.wallet_address}}</div>
+            </ion-col>
+            
+            <ion-col size="0.5"></ion-col>
 
+            <ion-col size="1.5" matRipple (click)="goToHome()">
+                <ion-icon name="home" style="height: 100%; width: 100%; color: #263238;"></ion-icon>
+            </ion-col>
+              
+          </ion-row>
+        </ion-grid>
+    </div>
 </ion-content>
